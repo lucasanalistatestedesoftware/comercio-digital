@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <header>
+        <div class="cabecario">
+            <div class="texto-logo">
+                <img src="{{ url_for('static',filename='img/logo.png') }}" alt="logo">
+            </div>
+        </div>
+        <nav>
+            <div> <form action="https://google.com/search" method="get">
+                <input class="pesquisa" type="text" name="q"
+                placeholder="Pesquise no MercadoDigital.com.br">
+               <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+               
+            </form></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="/login">login</a></li>
+                    <li><a href="/cadastro" target="_parent"
+                        rel="next">venda na Mercado Digital</a></li>
+                    <li><a href="#">Ofertas do Dia</a></li>
+                    <li><a href="#">Mais Vendidos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <head>
+        <nav class="menu-color">
+            <div class="menu-2">
+                <ul>
+                    <li><a href="#">Novidades /</a></li>
+                    <li><a href="#">Eletrônicos /</a></li>
+                    <li><a href="#">Móveis Projetados /</a></li>
+                    <li><a href="#">Roupas /</a></li>
+                    <li><a href="#">Fitness</a></li>
+                </ul>
+            </div>
+        </nav>
+    </head>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <header>
+        <div class="cabecario">
+            <div class="texto-logo">
+                <a href="index"><img src="{{ url_for('static',filename='img/logo.png') }}" alt="logo"></a>
+            </div>
+        </div>
+    </header>
+    
+    <h1>Digite seu e-mail, telefone ou usuário do Mercado Digital</h1>
+
+    <form method="post" class="formlogin">
+        <fieldset>
+        <p>E-mail, Telefone ou Usuário</p>
+        <label><input type="text" id="text"></label>
+        <a href="#"><input type="submit" value="continuar" class="btm"></a>
+        </fieldset>
+    </form>
+
+    <footer class="fixarRodape">
+        copyright &copy; MercadoDigital.com
+    </footer>
+{% endblock %}

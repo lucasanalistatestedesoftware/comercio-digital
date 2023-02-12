@@ -1,0 +1,13 @@
+* { margin: 0; padding: 0; }
+
+div {
+    position: absolute;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+div > img {
+    position: relative;
+    height: 400px;
+}
