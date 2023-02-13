@@ -4,7 +4,8 @@
 
 2 - Iniciando um ambiente virtual com python ( Na mesma tela de comando seguir com os passos abaixo )
 ```
-pip install -r requirements.txt
+python -m venv env
+env\Scripts\activate
 ```
 
 
