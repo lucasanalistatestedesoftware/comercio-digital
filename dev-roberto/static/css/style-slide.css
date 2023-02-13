@@ -1,13 +1,69 @@
 * { margin: 0; padding: 0; }
 
-div {
+.slide {
     position: absolute;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
+    width: 40%;
+    height: 20%;
+    background: lightgray;
+    overflow: hidden;
+    transition:  left 0.5s;
+    box-shadow: 0 0 10px black;
 }
 
-div > img {
+.slide > div[class="input"]{
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 99;
+    font-size: 20px;
+    height: 100%;
+    cursor: pointer;
+    width: 20px;
+    vertical-align: auto;
+}
+
+.slide > div[id="input-anterior"]{
+    left: 0;
+}
+.slide > div[id="input-proximo"]{
+    right: 0;
+}
+
+
+.bloco-imagens {
     position: relative;
-    height: 400px;
+    width: 200%;
+    height: 100%;
+    display: flex;
+    left: 0;
+    transition:  left 0.5s;
+}
+
+.bloco-imagens.show-img2{
+    left: -100%;
+}
+
+.bloco-imagens > div {
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+.img1 > img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.img2 > img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+iframe {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+    height: calc(100% - 20%);
+    border-style: none;
 }

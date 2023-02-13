@@ -4,9 +4,38 @@
 
 <div class="slide">
 
-    <img src="{{ url_for('static',filename='img/img1.png') }}" alt="">
-    <img src="{{ url_for('static',filename='img/img2.png') }}" alt="">
+    <div class="input" id="input-anterio"></div>
+    <div class="input" id="input-proximo"></div>
+
+    <div class="bloco-imagens">
+
+        <div class="img1">
+            <img src="{{ url_for('static',filename='img/img1.png') }}" class="img1">
+        </div>
+
+        <div class="img2">
+            <img src="{{ url_for('static',filename='img/img2.png') }}" class="img1">
+        </div>
+
+    </div>
 
 </div>
+
+<iframe src="/index" title="description"></iframe>
+
+<script>
+
+    const proximoSlide = document.getElementById("input-proximo");
+
+    proximoSlide.addEventListener('click',()=>{
+        let slide = document.querySelector('.bloco-imagens');
+
+        slide.classList.toggle('show-img2');
+    })
+
+</script>
+
+<!-- <img src="{{ url_for('static',filename='img/img1.png') }}" class="img1">
+<img src="{{ url_for('static',filename='img/img2.png') }}" class="img1"> -->
 
 {% endblock %}
