@@ -4,7 +4,8 @@
 <br>
 (Na mesma tela de comando seguir com os passos abaixo)
 <br>
-2 - Iniciando um ambiente virtual com python<br>
+2 - Iniciando um ambiente virtual com python
+
 ```
 python -m venv env
 env\Scripts\actitave
