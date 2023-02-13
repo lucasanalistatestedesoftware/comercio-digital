@@ -1,17 +1,19 @@
-<dl>
-<dt><h1>Iniciando o servidor - Flask</h1></dt>
-<dd>Iniciar CMD a partir deste diretorio ./mercado-digital/dev-roberto/</dd>
-<dd>Iniciando um ambiente virtual com python ( Na mesma tela de comando seguir com os passos abaixo )</dd>
-```
-pip install -r requirements.txt
-```
-<dd>3 - Intalando as dependencias</dd>
+
+# Iniciando o servidor - Flask
+1 - Iniciar CMD a partir deste diretorio ./mercado-digital/dev-roberto/
+
+2 - Iniciando um ambiente virtual com python ( Na mesma tela de comando seguir com os passos abaixo )
 ```
 pip install -r requirements.txt
 ```
 
-<dd>4 - Iniciando o servidor</dd>
+
+3 - Intalando as dependencias
+```
+pip install -r requirements.txt
+```
+
+4 - Iniciando o servidor
 ```
 python server-routes.py
 ```
-</dl>
