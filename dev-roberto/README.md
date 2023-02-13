@@ -4,13 +4,13 @@
 
 2 - Iniciando um ambiente virtual com python<br>
 
-````
+```
 python -m venv env
 env\Scripts\actitave
 ```
 
 3 - Iniciar o servidor
 
-````
+```
 python server-routes.py
 ```
