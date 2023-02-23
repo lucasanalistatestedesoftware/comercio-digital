@@ -26,11 +26,12 @@ header{
 }
 
 .formlogin fieldset{
+    position: absolute;
     border-color: #e7e7e7;
     width: 400px;
     height: 110px;
-    margin-left: 35%;
-    margin-top:50px;
+    left: 50%; top: 40%;
+    transform: translate(-50%,-50%);
     border-radius: 10px;
 }
 

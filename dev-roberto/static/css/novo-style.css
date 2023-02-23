@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    box-sizing:border-box;
+}
+
+header.top-site {
+    position: absolute;
+    height: 135px; width: 100%;
+    background-color: #8d50ff;
+}
+
+div.conteudo-topo {
+    position: relative;
+    width: 90%;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1250px;
+    display: flex;
+}
+
+div.conteudo-topo > div {
+    position: relative;
+    
+    height: 100%;
+}
+
+div.conteudo-left-logo {
+    left: 0;
+    background: blue;
+    width: 30%;
+}
+
+div.conteudo-right-nav {
+    right: 0;
+    background: red;
+    width: 70%;
+}

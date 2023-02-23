@@ -26,4 +26,10 @@ def slide():
     style = 'css/style-slide.css'
     return render_template( "slide.html" , title=title,style=style)
 
+@app.route("/novo_index", methods=['GET','POST'])
+def novo_index():
+    title = 'Novo Index'
+    style = 'css/novo-style.css'
+    return render_template( "novo_index.html" , title=title,style=style)
+
 app.run(debug=True, host="0.0.0.0")
