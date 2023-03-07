@@ -1,0 +1,53 @@
+
+body{
+    background-color: #483d5b;
+    font-family:'Times New Roman', Times, serif;
+}
+.semfundo{
+    width: 10%;
+}
+h1{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: normal;
+    color: #483d5b;
+    font-size: 20px;
+    text-align: center;
+}
+.formlogin{
+    width: 250px;
+    margin-left: 30%;
+}
+.formlogin fieldset{
+    background: #8d50ff;
+    box-shadow: 2px 2px 2px #000000;
+    border: 0;
+    border-radius: 20px;
+    position: absolute;
+}
+.formlogin label{
+    margin-top: 10px;
+    display: block;
+    margin-bottom: 5px;
+}
+#nome, #email,#pass, .btm{
+    display: inline-block;
+    width: 500px;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 20px;
+    font-family: sans-serif;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 15px;
+}
+.btm{
+    margin-top: 15px;
+    background-color:#dbff22;
+    border: 5px solid #dbff22;
+    color: #000000;
+    font-family:'Times New Roman', Times, serif;
+    padding:10px;
+    border-radius: 100px;
+    font-size: 15px;
+    cursor: pointer;
+}
