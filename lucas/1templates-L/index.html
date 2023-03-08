@@ -58,17 +58,6 @@
       </div>
     </div>
 
-    <script>
-      var slides = document.querySelectorAll('.slideshow-slide');
-      var currentSlide = 0;
-      var slideInterval = setInterval(nextSlide, 5000);
-      
-      function nextSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-      }
-    </script>
       <div class="container-4">
           <div class="anuncio-blocos">
               <div class="anuncio">
@@ -118,122 +107,61 @@
           <button class="scroll-right-btn-1"><i class="fa-solid fa-angle-right"></i></button>
         </div>
 
-        <script>
-          const container = document.querySelector('.container-4');
-          const scrollLeftBtn = document.querySelector('.scroll-left-btn-1');
-          const scrollRightBtn = document.querySelector('.scroll-right-btn-1');
-          
-        scrollLeftBtn.addEventListener('click', () => {
-          container.scrollTo({
-            left: container.scrollLeft - 1000, // rolar 1000 pixels para a esquerda
-            behavior: 'smooth' // rolar suavemente
-          });
-        });
+        <div class="container-4-1">
+          <div class="anuncio-blocos">
+              <div class="anuncio">
+                <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
+                <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
+                <p class="preco">R$ 39,99</p>
+                <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
+                <a href="#" class="botao-comprar">Comprar</a>
+              </div>
+              <div class="anuncio">
+                <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
+                <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
+                <p class="preco">R$ 39,99</p>
+                <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
+                <a href="#" class="botao-comprar">Comprar</a>
+              </div>
+              <div class="anuncio">
+                <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
+                <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
+                <p class="preco">R$ 39,99</p>
+                <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
+                <a href="#" class="botao-comprar">Comprar</a>
+              </div>
+              <div class="anuncio">
+                <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
+                <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
+                <p class="preco">R$ 39,99</p>
+                <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
+                <a href="#" class="botao-comprar">Comprar</a>
+              </div>
+              <div class="anuncio">
+                <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
+                <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
+                <p class="preco">R$ 39,99</p>
+                <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
+                <a href="#" class="botao-comprar">Comprar</a>
+              </div>
+              <div class="anuncio">
+                <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
+                <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
+                <p class="preco">R$ 39,99</p>
+                <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
+                <a href="#" class="botao-comprar">Comprar</a>
+              </div>
+          </div>
+          <button class="scroll-left-btn-2"><i class="fa-solid fa-angle-left"></i></button>
+          <button class="scroll-right-btn-2"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+
+       
         
-        scrollRightBtn.addEventListener('click', () => {
-          container.scrollTo({
-            left: container.scrollLeft + 1000, // rolar 1000 pixels para a direita
-            behavior: 'smooth' // rolar suavemente
-          });
-        });
-        </script>
+         
 
-  <div class="container-4-1">
-    <div class="anuncio-blocos">
-    <div class="anuncio">
-      <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
-      <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
-      <p class="preco">R$ 39,99</p>
-      <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
-      <a href="#" class="botao-comprar">Comprar</a>
-    </div>
-    <div class="anuncio">
-      <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
-      <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
-      <p class="preco">R$ 39,99</p>
-      <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
-      <a href="#" class="botao-comprar">Comprar</a>
-    </div>
-    <div class="anuncio">
-      <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
-      <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
-      <p class="preco">R$ 39,99</p>
-      <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
-      <a href="#" class="botao-comprar">Comprar</a>
-    </div>
-    <div class="anuncio">
-      <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
-      <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
-      <p class="preco">R$ 39,99</p>
-      <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
-      <a href="#" class="botao-comprar">Comprar</a>
-    </div>
-    <div class="anuncio">
-      <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
-      <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
-      <p class="preco">R$ 39,99</p>
-      <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
-      <a href="#" class="botao-comprar">Comprar</a>
-    </div>
-    <div class="anuncio">
-      <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
-      <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
-      <p class="preco">R$ 39,99</p>
-      <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
-      <a href="#" class="botao-comprar">Comprar</a>
-    </div>
-    <div class="anuncio">
-      <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
-      <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
-      <p class="preco">R$ 39,99</p>
-      <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
-      <a href="#" class="botao-comprar">Comprar</a>
-    </div>
-    <div class="anuncio">
-      <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
-      <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
-      <p class="preco">R$ 39,99</p>
-      <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
-      <a href="#" class="botao-comprar">Comprar</a>
-    </div>
-    <div class="anuncio">
-      <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
-      <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
-      <p class="preco">R$ 39,99</p>
-      <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
-      <a href="#" class="botao-comprar">Comprar</a>
-    </div>
-    <div class="anuncio">
-      <img src="/lucas/img-L/41eyG2VOkVL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Nome do produto">
-      <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
-      <p class="preco">R$ 39,99</p>
-      <a href="#" class="botao-adicionar">Adicionar ao carrinho</a>
-      <a href="#" class="botao-comprar">Comprar</a>
-    </div>
-  </div>
-  <button class="scroll-left-btn-2"><i class="fa-solid fa-angle-left"></i></button>
-  <button class="scroll-right-btn-2"><i class="fa-solid fa-angle-right"></button>
-</div>
 
-<script>
-const container41 = document.querySelector('.container-4-1');
-const scrollleftbtn2 = document.querySelector('.scroll-left-bnt-2');
-const scrollRightBtn2 = document.querySelector('.scroll-right-btn-2');
 
-scrollleftbtn2.addEventListener('click', () => {
-  container41.scrollTo({
-    left: container41.scrollLeft - 1000, // rolar 100 pixels para a esquerda
-    behavior: 'smooth' // rolar suavemente
-  });
-});
-
-scrollRightBtn2.addEventListener('click', () => {
-  container41.scrollTo({
-    left: container41.scrollLeft + 1000, // rolar 100 pixels para a direita
-    behavior: 'smooth' // rolar suavemente
-  });
-});
-</script>
-
+<script src="/lucas/jscript/scripts.js"></script>
 </body>
 </html>
