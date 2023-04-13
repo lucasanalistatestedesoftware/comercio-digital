@@ -16,14 +16,14 @@
       
     scrollLeftBtn.addEventListener('click', () => {
       container.scrollTo({
-        left: container.scrollLeft - 1000, // rolar 1000 pixels para a esquerda
+        left: container.scrollLeft - 100, // rolar 1000 pixels para a esquerda
         behavior: 'smooth' // rolar suavemente
       });
     });
     
     scrollRightBtn.addEventListener('click', () => {
       container.scrollTo({
-        left: container.scrollLeft + 1000, // rolar 1000 pixels para a direita
+        left: container.scrollLeft + 100, // rolar 1000 pixels para a direita
         behavior: 'smooth' // rolar suavemente
       });
     });
@@ -35,14 +35,33 @@
     
   scrollLeftBtnn.addEventListener('click', () => {
     container41.scrollTo({
-      left: container41.scrollLeft - 1000, // rolar 1000 pixels para a esquerda
+      left: container41.scrollLeft - 100, // rolar 1000 pixels para a esquerda
       behavior: 'smooth' // rolar suavemente
     });
   });
   
   scrollRightBtnn.addEventListener('click', () => {
     container41.scrollTo({
-      left: container41.scrollLeft + 1000, // rolar 1000 pixels para a direita
+      left: container41.scrollLeft + 100, // rolar 1000 pixels para a direita
       behavior: 'smooth' // rolar suavemente
     });
   });
+
+
+  const container42 = document.querySelector('.container-4-2');
+  const scrollLeftBtnnn = document.querySelector('.scroll-left-btn-3');
+  const scrollRightBtnnn = document.querySelector('.scroll-right-btn-3');
+  
+scrollLeftBtnnn.addEventListener('click', () => {
+  container42.scrollTo({
+    left: container42.scrollLeft - 100, // rolar 1000 pixels para a esquerda
+    behavior: 'smooth' // rolar suavemente
+  });
+});
+
+scrollRightBtnnn.addEventListener('click', () => {
+  container42.scrollTo({
+    left: container42.scrollLeft + 100, // rolar 1000 pixels para a direita
+    behavior: 'smooth' // rolar suavemente
+  });
+});
