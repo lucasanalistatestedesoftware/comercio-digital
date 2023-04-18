@@ -162,7 +162,6 @@ header {
 .anuncio img {
   display: block;
   margin: 0 auto;
-  width: 30%;
   height: auto;
   margin-bottom: 10px;
 }
@@ -217,14 +216,14 @@ header {
 .scroll-left-btn-1 {
   left: 10px;
   /* posição desejada */
-  margin-top: 520px;
+  margin-top: 650px;
 
 }
 
 .scroll-right-btn-1 {
   right: 10px;
   /* posição desejada */
-  margin-top: 520px;
+  margin-top: 650px;
 }
 
 .container-4::-webkit-scrollbar {
