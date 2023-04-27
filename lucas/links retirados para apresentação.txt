@@ -1,0 +1,6 @@
+<ul>
+          <li><a href="#">Novidades /</a></li>
+          <li><a href="#">Eletrônicos /</a></li>
+          <li><a href="#">Roupas /</a></li>
+          <li><a href="#">Fitness</a></li>
+</ul>

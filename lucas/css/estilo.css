@@ -138,6 +138,7 @@ header {
 
 .anuncio {
   width: 300px;
+  height: 550px;
   border: 1px solid #ccc;
   padding: 10px;
   margin-top: -10px;
@@ -154,9 +155,10 @@ header {
 .anuncio h3 {
   font-size: 1.2rem;
   margin: 0;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   text-align: center;
   flex-grow: 1;
+  display: block;
 }
 
 .anuncio img {
@@ -216,14 +218,14 @@ header {
 .scroll-left-btn-1 {
   left: 10px;
   /* posição desejada */
-  margin-top: 650px;
+  margin-top: 600px;
 
 }
 
 .scroll-right-btn-1 {
   right: 10px;
   /* posição desejada */
-  margin-top: 650px;
+  margin-top: 600px;
 }
 
 .container-4::-webkit-scrollbar {
@@ -249,7 +251,12 @@ header {
   flex-direction: row;
   margin-top: 3rem;
 }
-
+.suple{
+  width: 200px;
+  height: 250px;
+  margin-top: 5%;
+  padding: 10px; 
+}
 .scroll-left-btn-2,
 .scroll-right-btn-2 {
   position: absolute;
@@ -266,14 +273,14 @@ header {
 .scroll-left-btn-2 {
   left: 10px;
   /* posição desejada */
-  margin-top: 1034px;
+  margin-top: 2000px;
 
 }
 
 .scroll-right-btn-2 {
   right: 10px;
   /* posição desejada */
-  margin-top: 1034px;
+  margin-top: 2000px;
 }
 
 .container-4-1::-webkit-scrollbar {
@@ -316,14 +323,14 @@ header {
 .scroll-left-btn-3 {
   left: 10px;
   /* posição desejada */
-  margin-top: 1549px;
+  margin-top: 1330px;
 
 }
 
 .scroll-right-btn-3 {
   right: 10px;
   /* posição desejada */
-  margin-top: 1549px;
+  margin-top: 1330px;
 }
 
 .container-4-2::-webkit-scrollbar {
