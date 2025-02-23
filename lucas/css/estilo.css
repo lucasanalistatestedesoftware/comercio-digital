@@ -1,9 +1,12 @@
+* {
+  font-family: "Poppins", serif;
+}
+
 body {
   background-color: #ffffff;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
 
 }
 
@@ -12,7 +15,6 @@ h2,
 h3,
 h4,
 p {
-  font-family: 'Amazon Ember', Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #000;
@@ -49,7 +51,6 @@ header {
 
 .menu li a {
   font-size: 20px;
-  font-family: sans-serif;
   text-decoration: none;
   color: rgb(255, 255, 255);
   text-transform: uppercase;
@@ -66,16 +67,16 @@ header {
   width: 80%;
   height: 30px;
   border: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .fa-magnifying-glass {
   background-color: #dbff22;
   border: 5px solid #dbff22;
   color: #000000;
-  padding: 10px;
+  padding: 5px;
   border-radius: 100px;
-  font-size: 15px;
+  font-size: 12px;
   cursor: pointer;
 }
 
@@ -91,7 +92,6 @@ header {
 
 .menu-2 li a {
   font-size: 18px;
-  font-family: sans-serif;
   text-decoration: none;
   color: rgb(0, 0, 0);
   text-transform: uppercase;
@@ -112,6 +112,7 @@ header {
 }
 
 .slideshow-container {
+  text-align: center;
   position: relative;
   height: 400px;
   width: 100%;
@@ -139,13 +140,23 @@ header {
 .anuncio {
   width: 300px;
   height: 550px;
-  border: 1px solid #ccc;
   padding: 10px;
   margin-top: -10px;
   margin-bottom: 20px;
   margin-left: 30px;
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.15), 
+  0 4px 6px rgba(0, 0, 0, 0.10);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.anuncio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2), 
+              0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 .anuncio p h3{
@@ -159,13 +170,19 @@ header {
   text-align: center;
   flex-grow: 1;
   display: block;
+  font-weight: 400;
+}
+
+.anuncio > p {
+  font-weight: 600;
 }
 
 .anuncio img {
+  width: 80%; 
+  height: 250px; 
+  object-fit: cover; 
   display: block;
-  margin: 0 auto;
-  height: auto;
-  margin-bottom: 10px;
+  margin: 0 auto 10px;
 }
 
 .anuncio .preco {
@@ -206,7 +223,6 @@ header {
 .scroll-right-btn-1 {
   position: absolute;
   top: 50%;
-  /* posição desejada */
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
@@ -391,6 +407,26 @@ header {
 .logincliente:hover{
   background: #8d50ff;
 }
+
+footer {
+  background-color: #8d50ff; 
+  color: white; 
+  padding: 20px; 
+  text-align: center;
+}
+
+.contato {
+  display: flex; 
+  flex-direction: column; 
+  justify-content: baseline; 
+  align-items: flex-start;
+}
+
+.contato > p {
+  margin: 5px 0;
+  color: #ffffff;
+}
+
 
 /* Estilos para telas menores */
 
