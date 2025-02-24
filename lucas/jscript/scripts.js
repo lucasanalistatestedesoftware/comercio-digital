@@ -203,4 +203,26 @@ document.addEventListener("DOMContentLoaded", function () {
         // Centraliza ao carregar a página
         centralizarCarrinho();
     }
+
+    // Slideshow functionality
+    function iniciarSlideshow() {
+        const slides = document.querySelectorAll(".slideshow-slide");
+        let currentSlide = 0;
+
+        if (slides.length === 0) {
+            console.error("Nenhum slide encontrado no slideshow.");
+            return;
+        }
+
+        function mostrarProximoSlide() {
+            slides[currentSlide].classList.remove("active");
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add("active");
+        }
+
+        slides[currentSlide].classList.add("active");
+        setInterval(mostrarProximoSlide, 3000);
+    }
+
+    iniciarSlideshow();
 });
