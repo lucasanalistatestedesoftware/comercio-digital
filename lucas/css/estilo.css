@@ -7,7 +7,6 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
 }
 
 h1,
@@ -28,14 +27,13 @@ header {
   align-items: center;
 }
 
-#logo-2{
+#logo-2 {
   margin-top: -9px;
 }
 
 .cabecario {
   display: flex;
   align-items: center;
-
 }
 
 .texto-logo {
@@ -66,7 +64,7 @@ header {
   margin-top: 15px;
   width: 80%;
   height: 30px;
-  border: 10px;
+  border: none; /* Ajustado de "10px" para "none", presumindo que era um erro */
   border-radius: 5px;
 }
 
@@ -148,7 +146,7 @@ header {
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.15), 
-  0 4px 6px rgba(0, 0, 0, 0.10);
+              0 4px 6px rgba(0, 0, 0, 0.10);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
 }
@@ -159,7 +157,7 @@ header {
               0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
-.anuncio p h3{
+.anuncio p h3 {
   flex-grow: 1;
 }
 
@@ -233,20 +231,16 @@ header {
 
 .scroll-left-btn-1 {
   left: 10px;
-  /* posição desejada */
   margin-top: 600px;
-
 }
 
 .scroll-right-btn-1 {
   right: 10px;
-  /* posição desejada */
   margin-top: 600px;
 }
 
 .container-4::-webkit-scrollbar {
   display: none;
-  /* esconder a barra de rolagem nativa do navegador */
 }
 
 .scroll-left-btn-1,
@@ -257,7 +251,6 @@ header {
   padding: 10px;
   border-radius: 10px;
   font-size: .8em;
-
 }
 
 .container-4-1 {
@@ -267,17 +260,18 @@ header {
   flex-direction: row;
   margin-top: 3rem;
 }
-.suple{
+
+.suple {
   width: 200px;
   height: 250px;
   margin-top: 5%;
   padding: 10px; 
 }
+
 .scroll-left-btn-2,
 .scroll-right-btn-2 {
   position: absolute;
   top: 50%;
-  /* posição desejada */
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
@@ -288,20 +282,16 @@ header {
 
 .scroll-left-btn-2 {
   left: 10px;
-  /* posição desejada */
   margin-top: 2000px;
-
 }
 
 .scroll-right-btn-2 {
   right: 10px;
-  /* posição desejada */
   margin-top: 2000px;
 }
 
 .container-4-1::-webkit-scrollbar {
   display: none;
-  /* esconder a barra de rolagem nativa do navegador */
 }
 
 .scroll-left-btn-2,
@@ -312,7 +302,6 @@ header {
   padding: 10px;
   border-radius: 10px;
   font-size: .8em;
-
 }
 
 .container-4-2 {
@@ -327,7 +316,6 @@ header {
 .scroll-right-btn-3 {
   position: absolute;
   top: 50%;
-  /* posição desejada */
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
@@ -338,20 +326,16 @@ header {
 
 .scroll-left-btn-3 {
   left: 10px;
-  /* posição desejada */
   margin-top: 1330px;
-
 }
 
 .scroll-right-btn-3 {
   right: 10px;
-  /* posição desejada */
   margin-top: 1330px;
 }
 
 .container-4-2::-webkit-scrollbar {
   display: none;
-  /* esconder a barra de rolagem nativa do navegador */
 }
 
 .scroll-left-btn-3,
@@ -364,7 +348,7 @@ header {
   font-size: .8em;
 }
 
-.bntcar{
+.bntcar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -382,11 +366,11 @@ header {
   z-index: 1;
 }
 
-.bntcar:hover{
+.bntcar:hover {
   background: #8d50ff;
 }
 
-.logincliente{
+.logincliente {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -404,7 +388,7 @@ header {
   z-index: 1;
 }
 
-.logincliente:hover{
+.logincliente:hover {
   background: #8d50ff;
 }
 
@@ -427,16 +411,124 @@ footer {
   color: #ffffff;
 }
 
+/* Estilos para o carrinho */
+.carrinho {
+  position: fixed; /* Mudado para fixed para rolar com a página */
+  top: 80px; /* Será ajustado pelo JS para centralizar */
+  left: 50%; /* Início ajustado pelo JS */
+  width: 350px;
+  max-height: 400px;
+  background-color: #fff;
+  border: 2px solid #8d50ff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow-y: auto;
+  cursor: default;
+}
+
+.carrinho-header {
+  background-color: #8d50ff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px 5px 0 0;
+  cursor: move;
+  user-select: none;
+}
+
+.carrinho h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+#lista-carrinho {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+#lista-carrinho li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+#lista-carrinho li select {
+  margin-top: 5px;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid #8d50ff;
+}
+
+#lista-carrinho li button {
+  background-color: #dbff22;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
+}
+
+#lista-carrinho li button:hover {
+  background-color: #8d50ff;
+  color: #fff;
+}
+
+#lista-carrinho li .remover {
+  background-color: #ff4444;
+  color: #fff;
+}
+
+#lista-carrinho li .remover:hover {
+  background-color: #cc0000;
+}
+
+#fechar-carrinho {
+  display: block;
+  width: 100%;
+  background-color: #8d50ff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+#fechar-carrinho:hover {
+  background-color: #6b3ecc;
+}
+
+.contador {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #ff4444;
+  color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
 
 /* Estilos para telas menores */
-
 @media only screen and (max-width: 767px) {
-  /* Ocultar o slideshow */
   .slideshow-container {
     display: none;
   }
 
-  /* Estilos para o menu responsivo */
   nav {
     display: none;
   }
@@ -454,14 +546,16 @@ footer {
     display: none;
   }
 
+  .carrinho {
+    width: 90%;
+    right: 5%;
+    top: 60px;
+  }
 }
 
 /* Estilos para telas maiores */
 @media only screen and (min-width: 767px) {
-
-  .logincliente{
+  .logincliente {
     display: none;
   }
- 
 }
-

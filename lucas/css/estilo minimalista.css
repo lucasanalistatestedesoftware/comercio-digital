@@ -1,0 +1,354 @@
+* {
+  font-family: "Poppins", sans-serif; /* Mudado para sans-serif para um visual mais limpo */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5f5f5; /* Cinza claro para suavidade */
+  color: #333; /* Cor de texto mais suave */
+}
+
+h1, h2, h3, h4, p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+header {
+  width: 100%;
+  background-color: #fff; /* Fundo branco em vez de roxo */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee; /* Linha sutil */
+}
+
+#logo-2 {
+  height: 40px; /* Tamanho reduzido para simplicidade */
+}
+
+.cabecario {
+  display: flex;
+  align-items: center;
+}
+
+.texto-logo {
+  margin: 0 20px;
+}
+
+.menu li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.menu li a {
+  font-size: 16px; /* Tamanho reduzido */
+  text-decoration: none;
+  color: #333;
+  text-transform: uppercase;
+  transition: color .3s ease;
+}
+
+.menu li a:hover {
+  color: #666; /* Cinza escuro em vez de amarelo chamativo */
+}
+
+.pesquisa {
+  width: 300px;
+  height: 35px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.fa-magnifying-glass {
+  background-color: #fff;
+  border: none;
+  color: #666;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+}
+
+.menu-color {
+  display: none; /* Removido para minimalismo */
+}
+
+.slideshow-container {
+  text-align: center;
+  position: relative;
+  height: 300px; /* Reduzido */
+  width: 100%;
+  background-color: #fff;
+}
+
+.slideshow-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slideshow-slide.active {
+  opacity: 1;
+}
+
+.anuncio-blocos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Para responsividade */
+  gap: 20px; /* Espaçamento limpo */
+}
+
+.anuncio {
+  width: 250px; /* Reduzido */
+  height: auto;
+  padding: 15px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eee; /* Borda sutil em vez de sombra */
+  border-radius: 5px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.anuncio:hover {
+  transform: translateY(-3px); /* Movimento mais sutil */
+}
+
+.anuncio h3 {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  font-weight: 400;
+}
+
+.anuncio img {
+  width: 100%;
+  height: 200px; /* Reduzido */
+  object-fit: cover;
+}
+
+.anuncio .preco {
+  font-size: 1rem;
+  margin: 10px 0;
+  color: #666;
+}
+
+.anuncio .botao-comprar,
+.anuncio .botao-adicionar {
+  background-color: #fff;
+  border: 1px solid #666;
+  color: #666;
+  padding: 8px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 5px 0;
+  transition: background-color 0.3s ease;
+}
+
+.anuncio .botao-comprar:hover,
+.anuncio .botao-adicionar:hover {
+  background-color: #666;
+  color: #fff;
+}
+
+.container-4, .container-4-1, .container-4-2 {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  overflow-x: hidden; /* Remove rolagem horizontal */
+}
+
+.scroll-left-btn-1, .scroll-right-btn-1,
+.scroll-left-btn-2, .scroll-right-btn-2,
+.scroll-left-btn-3, .scroll-right-btn-3 {
+  display: none; /* Removido para minimalismo */
+}
+
+.suple {
+  width: 180px;
+  height: 200px;
+  margin: 0;
+  padding: 0;
+}
+
+.bntcar {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 50%;
+  background-color: #666;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bntcar:hover {
+  background-color: #444;
+}
+
+.logincliente {
+  display: none; /* Removido para minimalismo */
+}
+
+footer {
+  background-color: #fff;
+  color: #666;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.contato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contato > p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.carrinho {
+  position: fixed;
+  width: 300px;
+  max-height: 400px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.carrinho-header {
+  background-color: #666;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px 5px 0 0;
+  cursor: move;
+  user-select: none;
+}
+
+.carrinho h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+#lista-carrinho {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+#lista-carrinho li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+#lista-carrinho li select {
+  margin-top: 5px;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid #666;
+}
+
+#lista-carrinho li button {
+  background-color: #fff;
+  border: 1px solid #666;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
+}
+
+#lista-carrinho li button:hover {
+  background-color: #666;
+  color: #fff;
+}
+
+#lista-carrinho li .remover {
+  background-color: #fff;
+  border: 1px solid #ff4444;
+  color: #ff4444;
+}
+
+#lista-carrinho li .remover:hover {
+  background-color: #ff4444;
+  color: #fff;
+}
+
+#fechar-carrinho {
+  display: block;
+  width: 100%;
+  background-color: #666;
+  color: #fff;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+#fechar-carrinho:hover {
+  background-color: #444;
+}
+
+.contador {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff4444;
+  color: #fff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 767px) {
+  .slideshow-container {
+    display: none;
+  }
+  nav {
+    display: none;
+  }
+  .carrinho {
+    width: 90%;
+  }
+}
