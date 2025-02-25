@@ -1,0 +1,34 @@
+html, body { height: 100%; margin: 0; display: flex; flex-direction: column;}
+footer { text-align: center; padding: 20px 0; margin-top: auto; }
+
+.container { display: flex; width: 100%; max-width: 1200px; margin: 20px auto; }
+.content { flex: 1; padding-right: 20px; }
+
+.sidebar {
+    width: 300px;           
+    background: #f8f8f8;
+    padding: 20px;
+    overflow-y: auto;
+    border-radius: 10px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+}
+
+.product { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #ccc; }
+.buttons { display: flex; align-items: center; }
+.buttons button { margin: 0 5px; }
+.product-image { width: 150px; height: auto; margin-right: 10px; }
+
+.botao-comprar,
+.botao-adicionar {
+  display: inline-block;
+  background-color: #dbff22;
+  color: #000000;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+}
