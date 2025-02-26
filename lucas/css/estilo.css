@@ -157,6 +157,7 @@ header {
               0 4px 6px rgba(0, 0, 0, 0.10);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
+  border: 1px solid #0000001e;
 }
 
 .anuncio:hover {
