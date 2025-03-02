@@ -1,107 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/lucas/css/estilo.css">
     <link rel="stylesheet" href="checkout.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Checkout - Comércio Digital</title>
 </head>
 <body>
-
     <header>
         <div class="cabecario">
-          <div class="texto-logo">
-            <img src="/lucas/img-L/2.png" id="logo-2" alt="logo">
-          </div>
+            <div class="texto-logo">
+                <img src="/lucas/img-L/2.png" id="logo-2" alt="logo">
+            </div>
         </div>
         <nav>
-          <div>
-            <form action="https://google.com/search" method="get">
-              <input class="pesquisa" type="text" name="q" placeholder=" Pesquise no ComércioDigital.com.br">
-              <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-          </div>
-          <div class="menu">
-            
-          </div>
+            <div>
+                <form action="https://google.com/search" method="get">
+                    <input class="pesquisa" type="text" name="q" placeholder=" Pesquise no ComércioDigital.com.br">
+                    <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+            <div class="menu">
+                <!-- Menu vazio -->
+            </div>
         </nav>
-      </header>
+    </header>
 
-      <div class="container">
-        <div class="content">
-          
-          <div>
-              <img src="/lucas/img-L/produtos/airpods pro 3.png" class="suple product-image" alt="AirPods Pro 2023 3ª Geração - Réplica Premium">
-              <h3>AirPods Pro 2023 3ª Geração - Réplica Premium</h3>
-              <p class="preco">R$239,99</p>
-              <button onclick="addToCart('airpods', 'AirPods Pro 2023 3ª Geração - Réplica Premium', 239.99)" class="botao-comprar">Adicionar ao carrinho</button>
-          </div>
-
-          <hr style="margin-top: 2rem; margin-right: 3rem;">
-
-          <div style="margin-right: 3rem;">
-
-            
-              <h2>AirPods Pro 2023 3ª Geração - Réplica Premium</h2>
-              <p style="text-align: justify;"></p>
-              Tecnologia e estilo que cabem no seu bolso!
-              
-              Experimente o áudio de alta qualidade com os AirPods Pro 2023 3ª Geração - Réplica Premium. Com design ergonômico, cancelamento de ruído e som imersivo, esses fones oferecem uma experiência premium a um preço acessível. Perfeitos para quem busca praticidade, conforto e performance sem comprometer o orçamento.
-              
-              Principais características: 
-              <ul>
-                <li>🎧 Som de Alta Fidelidade: Áudio claro e equilibrado para música, chamadas e muito mais.</li>
-                <li>🔇 Cancelamento de Ruído: Foque no que importa, sem distrações.</li>
-                <li>⚡ Conexão Instantânea: Conecte-se facilmente ao seu dispositivo.</li>
-                <li>💧 Resistência a Respingos: Ideal para o dia a dia.</li>
-                <li>🔋 Bateria de Longa Duração: Acompanhe sua rotina sem preocupações.</li>
-              </ul>
-              Por que escolher os AirPods Pro Réplica Premium? 
-  
-              <ul>
-                <li>Design moderno e compacto.</li>
-                <li>Qualidade sonora que impressiona.</li>
-                <li>Preço que cabe no seu bolso.</li>
-              </ul>          
-              Leve a experiência premium com você!
-              Disponível por apenas R$ 239,99.</p>
-
-          </div>
-          
-      </div>
-      <div class="sidebar">
-          <h2>Meu Carrinho</h2>
-          <ul id="cart" style="padding: 0;"></ul>
-
-          <button class="botao-comprar">Finalizar compra</button>
-      </div>
+    <div class="checkout-container">
+        <h2>Checkout</h2>
+        <ul id="checkout-list"></ul>
+        <p id="checkout-total"></p>
+        <button class="botao-finalizar">Confirmar Pedido</button>
     </div>
 
-
-      <footer>
+    <footer>
         <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-around;">
-          <div class="contato">
-            <h3 style="color: #fff; font-weight: 500;">Contato</h3>
-            <p>📞 (85) 99999-9999</p>
-            <p>✉ contato@lojavirtual.com</p>
-          </div>
-          <div>
-            <h3 style="color: #fff; font-weight: 500;">Receba Promoções</h3>
-            <form>
-              <input type="email" placeholder="Digite seu e-mail" required style="padding: 8px; width: 200px; border-radius: 5px; border: none;">
-              <button type="submit" style="padding: 8px; background-color: #dbff22; border: none; cursor: pointer; border-radius: 5px;">Inscrever-se</button>
-            </form>
-          </div>
+            <div class="contato">
+                <h3 style="color: #fff; font-weight: 500;">Contato</h3>
+                <p>📞 (85) 99999-9999</p>
+                <p>✉ contato@lojavirtual.com</p>
+            </div>
+            <div>
+                <h3 style="color: #fff; font-weight: 500;">Receba Promoções</h3>
+                <form>
+                    <input type="email" placeholder="Digite seu e-mail" required style="padding: 8px; width: 200px; border-radius: 5px; border: none;">
+                    <button type="submit" style="padding: 8px; background-color: #dbff22; border: none; cursor: pointer; border-radius: 5px;">Inscrever-se</button>
+                </form>
+            </div>
         </div>
         <hr style="border: 1px solid rgba(255, 255, 255, 0.336); margin-top: 20px;">
         <p style="margin-top: 20px; font-size: 14px;">© 2025 Loja Virtual. Todos os direitos reservados.</p>
-      </footer>
+    </footer>
 
-      <script src="./checkout.js"></script>
-    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const carrinho = JSON.parse(localStorage.getItem("carrinho")) || {};
+            console.log("Página de checkout carregada. Carrinho do localStorage:", carrinho);
+
+            const checkoutList = document.getElementById("checkout-list");
+            const totalElement = document.getElementById("checkout-total");
+
+            if (!checkoutList || !totalElement) {
+                console.error("Elementos #checkout-list ou #checkout-total não encontrados.");
+                return;
+            }
+
+            checkoutList.innerHTML = "";
+            if (Object.keys(carrinho).length === 0) {
+                checkoutList.innerHTML = "<li>Carrinho vazio</li>";
+                totalElement.textContent = "Total: R$ 0,00";
+                console.log("Carrinho está vazio.");
+            } else {
+                Object.entries(carrinho).forEach(([id, product]) => {
+                    console.log("Adicionando item à lista de checkout:", product);
+                    const li = document.createElement("li");
+                    li.textContent = `${product.name} - R$${product.price.toFixed(2)} x ${product.quantity}`;
+                    checkoutList.appendChild(li);
+                });
+                const total = Object.values(carrinho).reduce((acc, item) => acc + item.price * item.quantity, 0);
+                totalElement.textContent = `Total: R$${total.toFixed(2)}`;
+                console.log("Total calculado:", total);
+            }
+
+            const botaoFinalizar = document.querySelector(".botao-finalizar");
+            if (botaoFinalizar) {
+                botaoFinalizar.addEventListener("click", function () {
+                    console.log("Compra finalizada. Limpando carrinho.");
+                    alert("Compra finalizada com sucesso!");
+                    localStorage.removeItem("carrinho");
+                    window.location.href = "index.html"; // Redireciona de volta para a página inicial
+                });
+            } else {
+                console.error("Botão .botao-finalizar não encontrado.");
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,12 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Carrega o carrinho do localStorage e verifica se é válido
-    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-    // Filtra itens inválidos (como undefined ou nomes vazios)
-    carrinho = carrinho.filter(item => item && item.nome && item.quantidade > 0);
-    localStorage.setItem("carrinho", JSON.stringify(carrinho)); // Atualiza o localStorage com dados limpos
+    // Carrega o carrinho do localStorage ou inicia vazio como objeto
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || {};
     atualizarCarrinho();
 
-    console.log("DOM carregado. Itens no carrinho após limpeza:", carrinho);
+    console.log("DOM carregado em index.html. Carrinho inicial:", carrinho);
 
     // Configura os botões "Adicionar ao carrinho"
     const botoesAdicionar = document.querySelectorAll(".botao-adicionar");
@@ -15,23 +12,20 @@ document.addEventListener("DOMContentLoaded", function () {
         botao.addEventListener("click", function (event) {
             event.preventDefault();
             const anuncio = botao.closest(".anuncio");
-            const produtoNome = anuncio.querySelector("h3")?.textContent.trim();
-            if (produtoNome) {
-                console.log("Adicionando produto:", produtoNome);
-                adicionarAoCarrinho(produtoNome);
-            } else {
-                console.error("Nome do produto não encontrado no anúncio.");
-            }
+            const produtoNome = anuncio.querySelector("h3").textContent.trim();
+            const produtoPreco = parseFloat(anuncio.querySelector(".preco").textContent.replace("R$", "").replace(",", "."));
+            const produtoId = botao.getAttribute("onclick").match(/'([^']+)'/)[1]; // Pega o ID do onclick
+            adicionarAoCarrinho(produtoId, produtoNome, produtoPreco);
         });
     });
 
     // Adiciona item ao carrinho
-    function adicionarAoCarrinho(produtoNome) {
-        let produto = carrinho.find(item => item.nome === produtoNome);
-        if (produto) {
-            produto.quantidade++;
+    function adicionarAoCarrinho(id, nome, preco) {
+        console.log("Adicionando ao carrinho:", { id, nome, preco });
+        if (carrinho[id]) {
+            carrinho[id].quantity += 1;
         } else {
-            carrinho.push({ nome: produtoNome, quantidade: 1 });
+            carrinho[id] = { name: nome, price: preco, quantity: 1 };
         }
         salvarCarrinho();
         atualizarCarrinho();
@@ -48,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function atualizarCarrinho() {
         const carrinhoIcon = document.querySelector(".bntcar");
         let contador = carrinhoIcon.querySelector(".contador");
-        let totalItens = carrinho.length > 0 ? carrinho.reduce((acc, item) => acc + item.quantidade, 0) : 0;
+        let totalItens = Object.values(carrinho).reduce((acc, item) => acc + item.quantity, 0);
 
         console.log("Atualizando carrinho. Total de itens:", totalItens);
 
@@ -62,8 +56,8 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             if (contador) {
                 contador.remove();
+                console.log("Carrinho vazio, contador removido.");
             }
-            console.log("Carrinho vazio, contador removido.");
         }
     }
 
@@ -87,25 +81,25 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Elemento #carrinho ou #lista-carrinho não encontrado.");
             return;
         }
-        console.log("Exibindo carrinho com", carrinho.length, "itens.");
+        console.log("Exibindo carrinho com", Object.keys(carrinho).length, "itens.");
         lista.innerHTML = "";
 
-        if (carrinho.length === 0) {
+        if (Object.keys(carrinho).length === 0) {
             lista.innerHTML = "<li>Carrinho vazio</li>";
         } else {
-            carrinho.forEach(item => {
-                if (item.nome && item.nome !== "undefined") {
+            Object.entries(carrinho).forEach(([id, item]) => {
+                if (item.name && item.name !== "undefined") {
                     let li = document.createElement("li");
                     let selectOptions = "";
                     for (let i = 1; i <= 100; i++) {
-                        selectOptions += `<option value="${i}" ${item.quantidade === i ? "selected" : ""}>${i}</option>`;
+                        selectOptions += `<option value="${i}" ${item.quantity === i ? "selected" : ""}>${i}</option>`;
                     }
                     li.innerHTML = `
-                        ${item.nome}
-                        <select class="quantidade" data-nome="${item.nome}">
+                        ${item.name} - R$${item.price.toFixed(2)}
+                        <select class="quantidade" data-id="${id}">
                             ${selectOptions}
                         </select>
-                        <button class="remover" data-nome="${item.nome}">Remover</button>
+                        <button class="remover" data-id="${id}">Remover</button>
                     `;
                     lista.appendChild(li);
                 }
@@ -129,13 +123,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Gerencia mudanças na quantidade
     document.addEventListener("change", function (event) {
         if (event.target.classList.contains("quantidade")) {
-            const nome = event.target.dataset.nome;
+            const id = event.target.dataset.id;
             const novaQuantidade = parseInt(event.target.value);
-            let produto = carrinho.find(p => p.nome === nome);
-            if (produto) {
-                produto.quantidade = novaQuantidade;
+            if (carrinho[id]) {
+                carrinho[id].quantity = novaQuantidade;
                 salvarCarrinho();
                 atualizarCarrinho();
+                exibirCarrinho();
             }
         }
     });
@@ -143,12 +137,30 @@ document.addEventListener("DOMContentLoaded", function () {
     // Gerencia cliques no botão de remover
     document.addEventListener("click", function (event) {
         if (event.target.classList.contains("remover")) {
-            carrinho = carrinho.filter(p => p.nome !== event.target.dataset.nome);
+            const id = event.target.dataset.id;
+            delete carrinho[id];
             salvarCarrinho();
             atualizarCarrinho();
             exibirCarrinho();
         }
     });
+
+    // Evento para o botão "Prosseguir"
+    const finalizarCompraBtn = document.getElementById("finalizar-compra");
+    if (finalizarCompraBtn) {
+        console.log("Botão #finalizar-compra encontrado.");
+        finalizarCompraBtn.addEventListener("click", function () {
+            if (Object.keys(carrinho).length > 0) {
+                console.log("Redirecionando para checkout.html com carrinho:", carrinho);
+                window.location.href = "checkout-pages/checkout.html"; // Ajustado para o caminho correto
+            } else {
+                alert("Adicione itens ao carrinho antes de prosseguir!");
+                console.log("Tentativa de redirecionar com carrinho vazio.");
+            }
+        });
+    } else {
+        console.error("Botão #finalizar-compra não encontrado.");
+    }
 
     // Lógica para arrastar o carrinho
     const carrinhoDiv = document.querySelector("#carrinho");
