@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/lucas/css/estilo.css">
+    <link rel="stylesheet" href="../lucas/css/estilo.css">
     <link rel="stylesheet" href="checkout.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,90 +14,48 @@
     <header>
         <div class="cabecario">
             <div class="texto-logo">
-                <img src="/lucas/img-L/2.png" id="logo-2" alt="logo">
+                <img src="../lucas/img-L/2.png" id="logo-2" alt="logo" style="height: 50px;" onerror="this.src='fallback-image.png';">
             </div>
+            <h1 style="color: #dbff22; font-size: 2rem; font-weight: bold; margin: 0; cursor: pointer;" onclick="window.location.href = '../index.html';">COMÉRCIO DIGITAL</h1>
         </div>
         <nav>
             <div>
                 <form action="https://google.com/search" method="get">
                     <input class="pesquisa" type="text" name="q" placeholder=" Pesquise no ComércioDigital.com.br">
-                    <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
                 </form>
-            </div>
-            <div class="menu">
-                <!-- Menu vazio -->
             </div>
         </nav>
     </header>
 
     <div class="checkout-container">
-        <h2>Checkout</h2>
-        <ul id="checkout-list"></ul>
-        <p id="checkout-total"></p>
+        <h2 class="checkout-title">Checkout</h2>
+        <ul id="checkout-list" class="checkout-list"></ul>
+        <p id="checkout-total" class="checkout-total">Total: R$ 0,00</p>
         <button class="botao-finalizar">Confirmar Pedido</button>
     </div>
 
     <footer>
-        <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-around;">
+        <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px;">
             <div class="contato">
-                <h3 style="color: #fff; font-weight: 500;">Contato</h3>
+                <h3>Contato</h3>
                 <p>📞 (85) 99999-9999</p>
                 <p>✉ contato@lojavirtual.com</p>
             </div>
-            <div>
-                <h3 style="color: #fff; font-weight: 500;">Receba Promoções</h3>
+            <div class="promocoes">
+                <h3>Receba Promoções</h3>
                 <form>
-                    <input type="email" placeholder="Digite seu e-mail" required style="padding: 8px; width: 200px; border-radius: 5px; border: none;">
-                    <button type="submit" style="padding: 8px; background-color: #dbff22; border: none; cursor: pointer; border-radius: 5px;">Inscrever-se</button>
+                    <input type="email" placeholder="Digite seu e-mail" required>
+                    <button type="submit">Inscrever-se</button>
                 </form>
             </div>
         </div>
-        <hr style="border: 1px solid rgba(255, 255, 255, 0.336); margin-top: 20px;">
-        <p style="margin-top: 20px; font-size: 14px;">© 2025 Loja Virtual. Todos os direitos reservados.</p>
+        <hr>
+        <p>© 2025 Loja Virtual. Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const carrinho = JSON.parse(localStorage.getItem("carrinho")) || {};
-            console.log("Página de checkout carregada. Carrinho do localStorage:", carrinho);
-
-            const checkoutList = document.getElementById("checkout-list");
-            const totalElement = document.getElementById("checkout-total");
-
-            if (!checkoutList || !totalElement) {
-                console.error("Elementos #checkout-list ou #checkout-total não encontrados.");
-                return;
-            }
-
-            checkoutList.innerHTML = "";
-            if (Object.keys(carrinho).length === 0) {
-                checkoutList.innerHTML = "<li>Carrinho vazio</li>";
-                totalElement.textContent = "Total: R$ 0,00";
-                console.log("Carrinho está vazio.");
-            } else {
-                Object.entries(carrinho).forEach(([id, product]) => {
-                    console.log("Adicionando item à lista de checkout:", product);
-                    const li = document.createElement("li");
-                    li.textContent = `${product.name} - R$${product.price.toFixed(2)} x ${product.quantity}`;
-                    checkoutList.appendChild(li);
-                });
-                const total = Object.values(carrinho).reduce((acc, item) => acc + item.price * item.quantity, 0);
-                totalElement.textContent = `Total: R$${total.toFixed(2)}`;
-                console.log("Total calculado:", total);
-            }
-
-            const botaoFinalizar = document.querySelector(".botao-finalizar");
-            if (botaoFinalizar) {
-                botaoFinalizar.addEventListener("click", function () {
-                    console.log("Compra finalizada. Limpando carrinho.");
-                    alert("Compra finalizada com sucesso!");
-                    localStorage.removeItem("carrinho");
-                    window.location.href = "index.html"; // Redireciona de volta para a página inicial
-                });
-            } else {
-                console.error("Botão .botao-finalizar não encontrado.");
-            }
-        });
-    </script>
+    <script src="checkout.js"></script>
 </body>
 </html>

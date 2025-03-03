@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
         finalizarCompraBtn.addEventListener("click", function () {
             if (Object.keys(carrinho).length > 0) {
                 console.log("Redirecionando para checkout.html com carrinho:", carrinho);
-                window.location.href = "checkout-pages/checkout.html"; // Ajustado para o caminho correto
+                window.location.href = "checkout-pages/checkout.html"; // Ajustado para o caminho correto a partir de /lucas/1templates-L/
             } else {
                 alert("Adicione itens ao carrinho antes de prosseguir!");
                 console.log("Tentativa de redirecionar com carrinho vazio.");
@@ -237,4 +237,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     iniciarSlideshow();
+
+    // Função opcional para "Ver Mais" (descomente e ajuste conforme necessário)
+    /*
+    const botoesVerMais = document.querySelectorAll(".botao-ver-mais");
+    botoesVerMais.forEach(botao => {
+        botao.addEventListener("click", (event) => {
+            event.preventDefault();
+            const categoria = botao.closest(".category-section").querySelector(".category-title").textContent;
+            console.log("Clique em Ver Mais para a categoria:", categoria);
+            // Exemplo: redirecionar para uma página específica ou carregar mais produtos
+            window.location.href = `/${categoria.toLowerCase().replace("👾 ", "").replace(" 👾", "").replace(" ", "-")}.html`;
+        });
+    });
+    */
 });

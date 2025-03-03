@@ -113,7 +113,7 @@ header {
 .slideshow-container {
   text-align: center;
   position: relative;
-  height: 400px;
+  height: 300px; /* Reduzido para minimalismo */
   width: 100%;
   overflow: hidden;
 }
@@ -138,41 +138,56 @@ header {
   object-fit: cover;
 }
 
+.category-section {
+  margin: 20px 0;
+}
+
+.category-title {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #000;
+}
+
 .anuncio-blocos {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 10px; /* Espaço menor entre os itens, como no AliExpress */
+  padding: 0 10px;
+  flex-wrap: wrap; /* Permite que os itens se ajustem em linhas */
 }
 
 .anuncio {
-  width: 300px;
-  height: 550px;
-  padding: 10px;
-  margin-top: -10px;
-  margin-bottom: 20px;
-  margin-left: 30px;
+  width: 180px; /* Reduzido ainda mais para minimalismo, como no AliExpress */
+  height: 350px; /* Reduzido para minimalismo */
+  padding: 5px; /* Padding ainda menor */
+  margin: 5px 0; /* Margem reduzida */
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
-  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3),0 1px 3px 1px rgba(60,64,67,0.15); 
+  border-radius: 6px; /* Raio de borda reduzido */
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15); /* Sombra mais leve */
   border: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transição mais rápida */
   text-align: center;
+  background-color: #fff;
 }
 
 .anuncio:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2), 
-              0 6px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px); /* Movimento de hover reduzido */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Sombra no hover mais leve */
 }
 
 .anuncio h3 {
-  font-size: 1.2rem;
+  font-size: 0.9rem; /* Reduzido para minimalismo */
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 5px; /* Margem reduzida */
   text-align: center;
   flex-grow: 1;
   display: block;
   font-weight: 400;
+  white-space: nowrap; /* Evita quebra de linha no título */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adiciona "..." se o texto for longo */
 }
 
 .anuncio > p {
@@ -180,38 +195,45 @@ header {
 }
 
 .anuncio img {
-  width: 80%;
-  height: 250px;
+  width: 100%; /* Imagem ocupando toda a largura disponível */
+  height: 150px; /* Altura reduzida para minimalismo, como no AliExpress */
   object-fit: cover;
   display: block;
-  margin: 0 auto 10px;
+  margin: 0 auto 5px; /* Margem reduzida */
 }
 
 .anuncio .preco {
-  font-size: 1.1rem;
+  font-size: 0.8rem; /* Preço menor */
   display: block;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 5px; /* Margem reduzida */
+  color: #000;
+  font-weight: bold;
 }
 
-.anuncio .botao-comprar,
+.anuncio .rating {
+  font-size: 0.7rem; /* Avaliação menor */
+  display: block;
+  text-align: center;
+  margin-bottom: 5px; /* Margem reduzida */
+  color: #666;
+}
+
 .anuncio .botao-adicionar {
   display: inline-block;
   background-color: #dbff22;
   color: #000000;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 6px 10px; /* Padding reduzido */
+  border-radius: 3px; /* Raio de borda reduzido */
   text-decoration: none;
-  margin: 1%;
-  margin-right: 10px;
-  margin-left: 10px;
   text-align: center;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 0.7rem; /* Texto dos botões menor */
+  transition: background-color 0.2s ease; /* Transição mais rápida */
+  width: 100%; /* Botão ocupando toda a largura */
 }
 
-.anuncio .botao-comprar:hover,
 .anuncio .botao-adicionar:hover {
   background-color: #8d50ff;
   color: #fff;
@@ -220,11 +242,11 @@ header {
 .container-4,
 .container-4-1,
 .container-4-2 {
-  padding: 10px;
-  overflow-x: scroll;
+  padding: 5px; /* Padding reduzido */
+  overflow-x: hidden; /* Removido scroll horizontal para layout AliExpress */
   display: flex;
-  flex-direction: row;
-  margin-top: 3rem;
+  flex-direction: column;
+  margin-top: 1rem; /* Margem reduzida */
 }
 
 .scroll-left-btn-1,
@@ -233,48 +255,14 @@ header {
 .scroll-right-btn-2,
 .scroll-left-btn-3,
 .scroll-right-btn-3 {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  color: #000000;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.scroll-left-btn-1 { left: 10px; margin-top: 600px; }
-.scroll-right-btn-1 { right: 10px; margin-top: 600px; }
-.scroll-left-btn-2 { left: 10px; margin-top: 2000px; }
-.scroll-right-btn-2 { right: 10px; margin-top: 2000px; }
-.scroll-left-btn-3 { left: 10px; margin-top: 1330px; }
-.scroll-right-btn-3 { right: 10px; margin-top: 1330px; }
-
-.container-4::-webkit-scrollbar,
-.container-4-1::-webkit-scrollbar,
-.container-4-2::-webkit-scrollbar {
-  display: none;
-}
-
-.scroll-left-btn-1,
-.scroll-right-btn-1,
-.scroll-left-btn-2,
-.scroll-right-btn-2,
-.scroll-left-btn-3,
-.scroll-right-btn-3 {
-  background-color: rgb(0, 0, 255);
-  border: 2px solid rgb(0, 0, 255);
-  color: rgb(255, 255, 255);
-  padding: 10px;
-  border-radius: 10px;
-  font-size: .8em;
+  display: none; /* Removido botões de scroll, como no AliExpress */
 }
 
 .suple {
-  width: 200px;
-  height: 250px;
-  margin-top: 5%;
-  padding: 10px;
+  width: 100%; /* Imagem ocupando toda a largura */
+  height: 150px; /* Altura reduzida para minimalismo */
+  margin-top: 2%; /* Margem reduzida */
+  padding: 0; /* Padding removido */
 }
 
 .bntcar {
@@ -282,14 +270,14 @@ header {
   justify-content: center;
   align-items: center;
   position: fixed;
-  width: 30px;
-  height: 30px;
-  font-size: 35px;
-  border-radius: 100%;
+  width: 25px; /* Tamanho reduzido */
+  height: 25px; /* Tamanho reduzido */
+  font-size: 30px; /* Tamanho do ícone reduzido */
+  border-radius: 50%; /* Mantido redondo */
   right: 10px;
   bottom: 10px;
   background-color: #dbff22;
-  padding: 40px;
+  padding: 30px; /* Padding reduzido */
   cursor: pointer;
   opacity: 0.9;
   z-index: 1;
@@ -304,14 +292,14 @@ header {
   justify-content: center;
   align-items: center;
   position: fixed;
-  width: 30px;
-  height: 30px;
-  font-size: 35px;
-  border-radius: 100%;
+  width: 25px; /* Tamanho reduzido */
+  height: 25px; /* Tamanho reduzido */
+  font-size: 30px; /* Tamanho do ícone reduzido */
+  border-radius: 50%; /* Mantido redondo */
   right: 10px;
-  bottom: 100px;
+  bottom: 80px; /* Posição ajustada para minimalismo */
   background-color: #dbff22;
-  padding: 40px;
+  padding: 30px; /* Padding reduzido */
   cursor: pointer;
   opacity: 0.9;
   z-index: 1;
@@ -324,17 +312,19 @@ header {
 footer {
   background-color: #8d50ff;
   color: white;
-  padding: 20px;
+  padding: 15px; /* Padding reduzido */
   text-align: center;
 }
 
 .footer-content {
-  max-width: 1200px; 
-  margin: auto; display: flex; 
-  flex-wrap: wrap; 
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-
+  gap: 10px; /* Espaço reduzido entre elementos */
 }
+
 .contato {
   display: flex;
   flex-direction: column;
@@ -343,58 +333,61 @@ footer {
 }
 
 .contato > p {
-  margin: 5px 0;
+  margin: 3px 0; /* Margem reduzida */
   color: #ffffff;
+  font-size: 0.9rem; /* Texto menor */
 }
 
 .carrinho {
   position: fixed;
-  width: 350px;
-  max-height: 400px;
+  width: 300px; /* Largura reduzida */
+  max-height: 350px; /* Altura reduzida */
   background-color: #fff;
-  border: 2px solid #8d50ff;
-  border-radius: 10px;
-  padding: 15px;
+  border: 1px solid #8d50ff; /* Borda mais fina */
+  border-radius: 8px; /* Raio de borda reduzido */
+  padding: 10px; /* Padding reduzido */
   z-index: 1000;
   overflow-y: auto;
   cursor: default;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra mais leve */
 }
 
 .carrinho-header {
   background-color: #8d50ff;
   color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px 5px 0 0;
+  padding: 5px; /* Padding reduzido */
+  border-radius: 4px 4px 0 0; /* Raio de borda reduzido */
   cursor: move;
   user-select: none;
 }
 
 .carrinho h3 {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.1rem; /* Título menor */
   text-align: center;
 }
 
 #lista-carrinho {
   list-style: none;
   padding: 0;
-  margin: 10px 0;
+  margin: 5px 0; /* Margem reduzida */
 }
 
 #lista-carrinho li {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 8px 0;
+  padding: 5px 0; /* Padding reduzido */
   border-bottom: 1px solid #eee;
-  font-size: 0.9rem;
+  font-size: 0.8rem; /* Texto menor */
 }
 
 #lista-carrinho li select {
-  margin-top: 5px;
-  padding: 3px;
-  border-radius: 5px;
+  margin-top: 3px; /* Margem reduzida */
+  padding: 2px; /* Padding reduzido */
+  border-radius: 4px; /* Raio de borda reduzido */
   border: 1px solid #8d50ff;
+  font-size: 0.8rem; /* Texto menor */
 }
 
 #lista-carrinho li button,
@@ -402,12 +395,12 @@ footer {
 #finalizar-compra {
   background-color: #dbff22;
   border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 4px 8px; /* Padding reduzido */
+  border-radius: 4px; /* Raio de borda reduzido */
   cursor: pointer;
-  font-size: 0.8rem;
-  transition: background-color 0.3s ease;
-  margin-top: 5px;
+  font-size: 0.7rem; /* Texto menor */
+  transition: background-color 0.2s ease; /* Transição mais rápida */
+  margin-top: 4px; /* Margem reduzida */
 }
 
 #lista-carrinho li button:hover,
@@ -428,18 +421,41 @@ footer {
 
 .contador {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 3px; /* Posição ajustada para minimalismo */
+  right: 3px; /* Posição ajustada para minimalismo */
   background-color: #ff4444;
   color: #fff;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 16px; /* Tamanho reduzido */
+  height: 16px; /* Tamanho reduzido */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
+  font-size: 0.7rem; /* Texto menor */
   font-weight: bold;
+}
+
+.ver-mais {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.botao-ver-mais {
+  display: inline-block;
+  background-color: #000; /* Fundo preto, como no AliExpress */
+  color: #fff; /* Texto branco, como no AliExpress */
+  padding: 8px 20px; /* Tamanho ajustado para minimalismo */
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.2s ease;
+}
+
+.botao-ver-mais:hover {
+  background-color: #333; /* Tom mais escuro no hover, mantendo minimalismo */
 }
 
 @media only screen and (max-width: 767px) {
@@ -449,18 +465,10 @@ footer {
   nav {
       display: none;
   }
-  .scroll-left-btn-1,
-  .scroll-right-btn-1,
-  .scroll-left-btn-2,
-  .scroll-right-btn-2,
-  .scroll-left-btn-3,
-  .scroll-right-btn-3 {
-      display: none;
-  }
   .carrinho {
-      width: 90%;
-      right: 5%;
-      top: 60px;
+      width: 80%; /* Largura reduzida */
+      right: 10%;
+      top: 50px; /* Posição ajustada */
   }
 }
 

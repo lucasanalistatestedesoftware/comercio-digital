@@ -71,164 +71,201 @@
             <img src="/lucas/img-L/stanley slider.png" alt="Slide 3">
         </div>
     </div>
-    <center>
-        <hr style="border: 0.5px solid #0000002a;">
-        <h2>👾 Mais Vendidos 👾</h2>
-    </center>
-    <div class="container-4">
-        <div class="anuncio-blocos">
-            <div class="anuncio">
-                <img src="/lucas/img-L/produtos/airpods pro 3.png" class="suple" alt="AirPods Pro 2023 3ª Geração - Réplica Premium">
-                <h3>AirPods Pro 2023 3ª Geração - Réplica Premium</h3>
-                <p class="preco">R$239,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('airpods', 'AirPods Pro 2023 3ª Geração - Réplica Premium', 239.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
-            <div class="anuncio">
-                <img src="https://img.ltwebstatic.com/gspCenter/goodsImage/2022/12/29/6437935512_1016474/34A65FADC67C8B41162D6584C12E7421_thumbnail_600x.jpg" class="suple" alt="Smart Watch Smartband M7 Relógio Inteligente Android Ios">
-                <h3>Smart Watch Smartband M7 Relógio Inteligente Android Ios</h3>
-                <p class="preco">R$69,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('smartwatch_m7', 'Smart Watch Smartband M7 Relógio Inteligente Android Ios', 69.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
-            <div class="anuncio">
-                <img src="https://m.media-amazon.com/images/I/51M6C02w4FL.__AC_SX300_SY300_QL70_ML2_.jpg" class="suple" alt="Relógio Smartwatch Android Ios Inteligente D20 Bluetooth">
-                <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
-                <p class="preco">R$49,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('smartwatch_d20', 'Relógio Smartwatch Android Ios Inteligente D20 Bluetooth', 49.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
-            <div class="anuncio">
-                <img src="/lucas/img-L/produtos/garrafater.png" class="suple" alt="Garrafa Térmica Termômetro Display Led 500 ML Cor:Branco">
-                <h3>Garrafa Térmica Termômetro Display Led 500 ML Cor:Branco</h3>
-                <p class="preco">R$69,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('garrafa_termica', 'Garrafa Térmica Termômetro Display Led 500 ML Cor:Branco', 69.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
-            <div class="anuncio">
-                <img src="/lucas/img-L/produtos/fones.png" class="suple" alt="Fone De Ouvido Carro S/fio Bluetooth 5.0 S109 Envio Imediato">
-                <h3>Fone De Ouvido Carro S/fio Bluetooth 5.0 S109 Envio Imediato</h3>
-                <p class="preco">R$20,50</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('fone_bluetooth', 'Fone De Ouvido Carro S/fio Bluetooth 5.0 S109 Envio Imediato', 20.50); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
-            <div class="anuncio">
-                <img src="/lucas/img-L/produtos/smartband (1).jpg" class="suple" alt="Relógio De Pulso Digital Com LED M4 Esportivo A prova água feminino masculino">
-                <h3>Relógio De Pulso Digital Com LED M4 Esportivo A prova água feminino masculino</h3>
-                <p class="preco">R$19,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('smartband_m4', 'Relógio De Pulso Digital Com LED M4 Esportivo A prova água feminino masculino', 19.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
-        </div>
-        <button class="scroll-left-btn-1"><i class="fa-solid fa-angle-left"></i></button>
-        <button class="scroll-right-btn-1"><i class="fa-solid fa-angle-right"></i></button>
-    </div>
 
-    <center>
+    <!-- Seção "Mais Vendidos" -->
+    <section class="category-section">
         <hr style="border: 0.5px solid #0000002a;">
-        <h2>👾 Roupas 👾</h2>
-    </center>
-    <div class="container-4-2">
-        <div class="anuncio-blocos">
-            <div class="anuncio">
-                <img src="https://m.media-amazon.com/images/I/41BauTo6uzL._AC_SX679_.jpg" class="suple" alt="Blusa Moletom Casaco Jordan Preto Unissex Tamanho:P;Cor:Preto">
-                <h3>Blusa Moletom Casaco Jordan Preto Unissex Tamanho:P;Cor:Preto</h3>
-                <p class="preco">R$100,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('moletom_jordan', 'Blusa Moletom Casaco Jordan Preto Unissex Tamanho:P;Cor:Preto', 100.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
+        <h2 class="category-title">👾 Mais Vendidos 👾</h2>
+        <div class="category-container container-4">
+            <div class="anuncio-blocos">
+                <!-- Limitando a 8 produtos -->
+                <div class="anuncio">
+                    <img src="/lucas/img-L/produtos/airpods pro 3.png" class="suple" alt="AirPods Pro 2023 3ª Geração - Réplica Premium">
+                    <h3>AirPods Pro 2023 Réplica</h3>
+                    <p class="preco">R$239,99</p>
+                    <span class="rating">★★★★★ (1000+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('airpods', 'AirPods Pro 2023 3ª Geração - Réplica Premium', 239.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://img.ltwebstatic.com/gspCenter/goodsImage/2022/12/29/6437935512_1016474/34A65FADC67C8B41162D6584C12E7421_thumbnail_600x.jpg" class="suple" alt="Smart Watch Smartband M7 Relógio Inteligente Android Ios">
+                    <h3>Smart Watch M7</h3>
+                    <p class="preco">R$69,99</p>
+                    <span class="rating">★★★★★ (135 vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('smartwatch_m7', 'Smart Watch Smartband M7 Relógio Inteligente Android Ios', 69.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://m.media-amazon.com/images/I/51M6C02w4FL.__AC_SX300_SY300_QL70_ML2_.jpg" class="suple" alt="Relógio Smartwatch Android Ios Inteligente D20 Bluetooth">
+                    <h3>Smartwatch D20</h3>
+                    <p class="preco">R$49,99</p>
+                    <span class="rating">★★★★★ (8 vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('smartwatch_d20', 'Relógio Smartwatch Android Ios Inteligente D20 Bluetooth', 49.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="/lucas/img-L/produtos/garrafater.png" class="suple" alt="Garrafa Térmica Termômetro Display Led 500 ML Cor:Branco">
+                    <h3>Garrafa Térmica 500 ML</h3>
+                    <p class="preco">R$69,99</p>
+                    <span class="rating">★★★★★ (100+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('garrafa_termica', 'Garrafa Térmica Termômetro Display Led 500 ML Cor:Branco', 69.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="/lucas/img-L/produtos/fones.png" class="suple" alt="Fone De Ouvido Carro S/fio Bluetooth 5.0 S109 Envio Imediato">
+                    <h3>Fone Bluetooth S109</h3>
+                    <p class="preco">R$20,50</p>
+                    <span class="rating">★★★★★ (135 vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('fone_bluetooth', 'Fone De Ouvido Carro S/fio Bluetooth 5.0 S109 Envio Imediato', 20.50); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="/lucas/img-L/produtos/smartband (1).jpg" class="suple" alt="Relógio De Pulso Digital Com LED M4 Esportivo A prova água feminino masculino">
+                    <h3>Relógio LED M4</h3>
+                    <p class="preco">R$19,99</p>
+                    <span class="rating">★★★★★ (8 vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('smartband_m4', 'Relógio De Pulso Digital Com LED M4 Esportivo A prova água feminino masculino', 19.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <!-- Limitado a 6 produtos nesta categoria, mantendo o limite de 8 com placeholders -->
+                <div class="anuncio" style="display: none;">
+                    <!-- Placeholder para mais produtos, se necessário -->
+                </div>
+                <div class="anuncio" style="display: none;">
+                    <!-- Placeholder para mais produtos, se necessário -->
+                </div>
             </div>
-            <div class="anuncio">
-                <img src="https://m.media-amazon.com/images/I/51jdjDv4ZEL.__AC_SY445_SX342_QL70_ML2_.jpg" class="suple" alt="Blusa de Frio Moletom Cordão Neon Capuz Bolso Canguru Macio Relaxado">
-                <h3>Blusa de Frio Moletom Cordão Neon Capuz Bolso Canguru Macio Relaxado</h3>
-                <p class="preco">R$119,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('moletom_neon', 'Blusa de Frio Moletom Cordão Neon Capuz Bolso Canguru Macio Relaxado', 119.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
-            <div class="anuncio">
-                <img src="https://m.media-amazon.com/images/I/51-QeDJjfXL._AC_SX679_.jpg" class="suple" alt="Moletom masculino com capuz fashion Trends Hip Hop Patchwork Suéter com capuz">
-                <h3>Moletom masculino com capuz fashion Trends Hip Hop Patchwork Suéter com capuz</h3>
-                <p class="preco">R$155,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('moletom_hiphop', 'Moletom masculino com capuz fashion Trends Hip Hop Patchwork Suéter com capuz', 155.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
-            <div class="anuncio">
-                <img src="https://m.media-amazon.com/images/I/61nrMv5qHSL.__AC_SY445_SX342_QL70_ML2_.jpg" class="suple" alt="Moletom com capuz casual de manga comprida com capuz Color Block">
-                <h3>Moletom com capuz casual de manga comprida com capuz Color Block</h3>
-                <p class="preco">R$219,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('moletom_colorblock', 'Moletom com capuz casual de manga comprida com capuz Color Block', 219.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
-            <div class="anuncio">
-                <img src="https://m.media-amazon.com/images/I/61DVwMmbZNL.__AC_SY445_SX342_QL70_ML2_.jpg" class="suple" alt="Moletom casual masculino feminino com capuz e zíper frontal">
-                <h3>Moletom casual masculino feminino com capuz e zíper frontal</h3>
-                <p class="preco">R$169,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('moletom_zipper', 'Moletom casual masculino feminino com capuz e zíper frontal', 169.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
-            <div class="anuncio">
-                <img src="https://m.media-amazon.com/images/I/51uiOnZKDeL._AC_SX522_.jpg" class="suple" alt="Moletom Canguru Graffiti Sad Smile">
-                <h3>Moletom Canguru Graffiti Sad Smile</h3>
-                <p class="preco">R$169,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('moletom_graffiti', 'Moletom Canguru Graffiti Sad Smile', 169.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
+            <button class="scroll-left-btn-1"><i class="fa-solid fa-angle-left"></i></button>
+            <button class="scroll-right-btn-1"><i class="fa-solid fa-angle-right"></i></button>
         </div>
-        <button class="scroll-left-btn-2"><i class="fa-solid fa-angle-left"></i></button>
-        <button class="scroll-right-btn-2"><i class="fa-solid fa-angle-right"></i></button>
-    </div>
+        <div class="ver-mais">
+            <a href="#" class="botao-ver-mais">Ver Mais</a>
+        </div>
+    </section>
 
-    <center>
+    <!-- Seção "Roupas" -->
+    <section class="category-section">
         <hr style="border: 0.5px solid #0000002a;">
-        <h2>👾 Suplementos 👾</h2>
-    </center>
-    <div class="container-4-1">
-        <div class="anuncio-blocos">
-            <div class="anuncio">
-                <img src="https://blog.probiotica.com.br/wp-content/uploads/2016/05/Probiotica2016-PRO-Massa3200-3Kg-Morango-full.png" class="suple" alt="Relógio Smartwatch Android Ios Inteligente D20 Bluetooth">
-                <h3>Relógio Smartwatch Android Ios Inteligente D20 Bluetooth</h3>
-                <p class="preco">R$39,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('smartwatch_d20_sup', 'Relógio Smartwatch Android Ios Inteligente D20 Bluetooth', 39.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
+        <h2 class="category-title">👾 Roupas 👾</h2>
+        <div class="category-container container-4-2">
+            <div class="anuncio-blocos">
+                <!-- Limitando a 8 produtos -->
+                <div class="anuncio">
+                    <img src="https://m.media-amazon.com/images/I/41BauTo6uzL._AC_SX679_.jpg" class="suple" alt="Blusa Moletom Casaco Jordan Preto Unissex Tamanho:P;Cor:Preto">
+                    <h3>Moletom Jordan Preto</h3>
+                    <p class="preco">R$100,99</p>
+                    <span class="rating">★★★★★ (1000+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('moletom_jordan', 'Blusa Moletom Casaco Jordan Preto Unissex Tamanho:P;Cor:Preto', 100.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://m.media-amazon.com/images/I/51jdjDv4ZEL.__AC_SY445_SX342_QL70_ML2_.jpg" class="suple" alt="Blusa de Frio Moletom Cordão Neon Capuz Bolso Canguru Macio Relaxado">
+                    <h3>Moletom Neon</h3>
+                    <p class="preco">R$119,99</p>
+                    <span class="rating">★★★★★ (135 vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('moletom_neon', 'Blusa de Frio Moletom Cordão Neon Capuz Bolso Canguru Macio Relaxado', 119.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://m.media-amazon.com/images/I/51-QeDJjfXL._AC_SX679_.jpg" class="suple" alt="Moletom masculino com capuz fashion Trends Hip Hop Patchwork Suéter com capuz">
+                    <h3>Moletom Hip Hop</h3>
+                    <p class="preco">R$155,99</p>
+                    <span class="rating">★★★★★ (8 vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('moletom_hiphop', 'Moletom masculino com capuz fashion Trends Hip Hop Patchwork Suéter com capuz', 155.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://m.media-amazon.com/images/I/61nrMv5qHSL.__AC_SY445_SX342_QL70_ML2_.jpg" class="suple" alt="Moletom com capuz casual de manga comprida com capuz Color Block">
+                    <h3>Moletom Color Block</h3>
+                    <p class="preco">R$219,99</p>
+                    <span class="rating">★★★★★ (100+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('moletom_colorblock', 'Moletom com capuz casual de manga comprida com capuz Color Block', 219.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://m.media-amazon.com/images/I/61DVwMmbZNL.__AC_SY445_SX342_QL70_ML2_.jpg" class="suple" alt="Moletom casual masculino feminino com capuz e zíper frontal">
+                    <h3>Moletom com Zíper</h3>
+                    <p class="preco">R$169,99</p>
+                    <span class="rating">★★★★★ (135 vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('moletom_zipper', 'Moletom casual masculino feminino com capuz e zíper frontal', 169.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://m.media-amazon.com/images/I/51uiOnZKDeL._AC_SX522_.jpg" class="suple" alt="Moletom Canguru Graffiti Sad Smile">
+                    <h3>Moletom Graffiti</h3>
+                    <p class="preco">R$169,99</p>
+                    <span class="rating">★★★★★ (8 vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('moletom_graffiti', 'Moletom Canguru Graffiti Sad Smile', 169.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <!-- Limitado a 6 produtos nesta categoria, mantendo o limite de 8 com placeholders -->
+                <div class="anuncio" style="display: none;">
+                    <!-- Placeholder para mais produtos, se necessário -->
+                </div>
+                <div class="anuncio" style="display: none;">
+                    <!-- Placeholder para mais produtos, se necessário -->
+                </div>
             </div>
-            <div class="anuncio">
-                <img src="https://lojamaxtitanium.vtexassets.com/assets/vtex/assets-builder/lojamaxtitanium.theme/1.4.74-beta.0/placeholders/rewards1___0d25d87cfcf0696f48dc655a289f49ff.png" class="suple" alt="100% Whey Protein Max Titanium (Morango, 900g)">
-                <h3>100% Whey Protein Max Titanium (Morango, 900g)</h3>
-                <p class="preco">R$119,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('whey_max', '100% Whey Protein Max Titanium (Morango, 900g)', 119.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
-            <div class="anuncio">
-                <img src="https://static.netshoes.com.br/produtos/creatine-turbo-300g-black-skull/01/G54-4177-001/G54-4177-001_zoom1.jpg?ts=1650625727&ims=544x" class="suple">
-                <h3>Massa 3200 probiotica 3KG - baunilha</h3>
-                <p class="preco">R$150,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('massa_3200', 'Massa 3200 probiotica 3KG - baunilha', 150.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
-            <div class="anuncio">
-                <img src="https://static.netshoes.com.br/produtos/whey-100-hd-refil-900g-black-skull/99/G54-6388-799/G54-6388-799_zoom1.jpg?ts=1663172399&" class="suple" alt="Whey 100% Hd Refil 900g Black Skull">
-                <h3>Whey 100% Hd Refil 900g Black Skull</h3>
-                <p class="preco">R$89,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('whey_black', 'Whey 100% Hd Refil 900g Black Skull', 89.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
-            <div class="anuncio">
-                <img src="https://static.netshoes.com.br/produtos/creatina-monohidratada-hardcore-reload-300-gr-integralmedica/01/252-0831-001/252-0831-001_zoom1.jpg?ts=1587553967&ims=544x" class="suple" alt="Creatina Monohidratada Hardcore Reload 300 gr - IntegralMédica">
-                <h3>Creatina Monohidratada Hardcore Reload 300 gr - IntegralMédica</h3>
-                <p class="preco">R$159,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('creatina_hardcore', 'Creatina Monohidratada Hardcore Reload 300 gr - IntegralMédica', 159.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
-            <div class="anuncio">
-                <img src="https://www.gsuplementos.com.br/upload/growth-layout-personalizado/produto/185/produto-selo-topo-new-v3.png" class="suple" alt="100% Whey Protein Gold Standard (909G)">
-                <h3>100% Whey Protein Gold Standard (909G)</h3>
-                <p class="preco">R$39,99</p>
-                <a href="#" class="botao-adicionar" onclick="addToCart('whey_gold', '100% Whey Protein Gold Standard (909G)', 39.99); return false;">Adicionar ao carrinho</a>
-                <a href="#" class="botao-comprar">Comprar</a>
-            </div>
+            <button class="scroll-left-btn-2"><i class="fa-solid fa-angle-left"></i></button>
+            <button class="scroll-right-btn-2"><i class="fa-solid fa-angle-right"></i></button>
         </div>
-        <button class="scroll-left-btn-3"><i class="fa-solid fa-angle-left"></i></button>
-        <button class="scroll-right-btn-3"><i class="fa-solid fa-angle-right"></i></button>
-    </div>
+        <div class="ver-mais">
+            <a href="#" class="botao-ver-mais">Ver Mais</a>
+        </div>
+    </section>
+
+    <!-- Seção "Suplementos" -->
+    <section class="category-section">
+        <hr style="border: 0.5px solid #0000002a;">
+        <h2 class="category-title">👾 Suplementos 👾</h2>
+        <div class="category-container container-4-1">
+            <div class="anuncio-blocos">
+                <!-- Limitando a 8 produtos -->
+                <div class="anuncio">
+                    <img src="https://blog.probiotica.com.br/wp-content/uploads/2016/05/Probiotica2016-PRO-Massa3200-3Kg-Morango-full.png" class="suple" alt="Relógio Smartwatch Android Ios Inteligente D20 Bluetooth">
+                    <h3>Smartwatch D20 Sup</h3>
+                    <p class="preco">R$39,99</p>
+                    <span class="rating">★★★★★ (1000+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('smartwatch_d20_sup', 'Relógio Smartwatch Android Ios Inteligente D20 Bluetooth', 39.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://lojamaxtitanium.vtexassets.com/assets/vtex/assets-builder/lojamaxtitanium.theme/1.4.74-beta.0/placeholders/rewards1___0d25d87cfcf0696f48dc655a289f49ff.png" class="suple" alt="100% Whey Protein Max Titanium (Morango, 900g)">
+                    <h3>Whey Max Titanium</h3>
+                    <p class="preco">R$119,99</p>
+                    <span class="rating">★★★★★ (135 vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('whey_max', '100% Whey Protein Max Titanium (Morango, 900g)', 119.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://static.netshoes.com.br/produtos/creatine-turbo-300g-black-skull/01/G54-4177-001/G54-4177-001_zoom1.jpg?ts=1650625727&ims=544x" class="suple" alt="Massa 3200 probiotica 3KG - baunilha">
+                    <h3>Massa 3200 Baunilha</h3>
+                    <p class="preco">R$150,99</p>
+                    <span class="rating">★★★★★ (8 vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('massa_3200', 'Massa 3200 probiotica 3KG - baunilha', 150.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://static.netshoes.com.br/produtos/whey-100-hd-refil-900g-black-skull/99/G54-6388-799/G54-6388-799_zoom1.jpg?ts=1663172399&" class="suple" alt="Whey 100% Hd Refil 900g Black Skull">
+                    <h3>Whey Black Skull</h3>
+                    <p class="preco">R$89,99</p>
+                    <span class="rating">★★★★★ (100+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('whey_black', 'Whey 100% Hd Refil 900g Black Skull', 89.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://static.netshoes.com.br/produtos/creatina-monohidratada-hardcore-reload-300-gr-integralmedica/01/252-0831-001/252-0831-001_zoom1.jpg?ts=1587553967&ims=544x" class="suple" alt="Creatina Monohidratada Hardcore Reload 300 gr - IntegralMédica">
+                    <h3>Creatina Hardcore</h3>
+                    <p class="preco">R$159,99</p>
+                    <span class="rating">★★★★★ (135 vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('creatina_hardcore', 'Creatina Monohidratada Hardcore Reload 300 gr - IntegralMédica', 159.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://www.gsuplementos.com.br/upload/growth-layout-personalizado/produto/185/produto-selo-topo-new-v3.png" class="suple" alt="100% Whey Protein Gold Standard (909G)">
+                    <h3>Whey Gold Standard</h3>
+                    <p class="preco">R$39,99</p>
+                    <span class="rating">★★★★★ (8 vendidos)</span>
+                    <a href="#" class="botao-adicionar" onclick="addToCart('whey_gold', '100% Whey Protein Gold Standard (909G)', 39.99); return false;">Adicionar ao carrinho</a>
+                </div>
+                <!-- Limitado a 6 produtos nesta categoria, mantendo o limite de 8 com placeholders -->
+                <div class="anuncio" style="display: none;">
+                    <!-- Placeholder para mais produtos, se necessário -->
+                </div>
+                <div class="anuncio" style="display: none;">
+                    <!-- Placeholder para mais produtos, se necessário -->
+                </div>
+            </div>
+            <button class="scroll-left-btn-3"><i class="fa-solid fa-angle-left"></i></button>
+            <button class="scroll-right-btn-3"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+        <div class="ver-mais">
+            <a href="#" class="botao-ver-mais">Ver Mais</a>
+        </div>
+    </section>
 
     <footer>
         <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-around;">
