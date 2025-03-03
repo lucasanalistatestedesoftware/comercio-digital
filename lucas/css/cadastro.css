@@ -1,68 +1,78 @@
-body{
-    background-color: #ffffff;
-    padding: 0;
+html, body {
+    height: 100%;
     margin: 0;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
-.semfundo{
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.semfundo {
     width: 250px;
-    position: absolute;
+    margin-bottom: 20px;
 }
-h1{
+
+h1 {
     font-weight: normal;
     color: #000000;
     font-size: 20px;
     text-align: center;
 }
-.formlogin{
-    width: 250px;
-    margin-left: 30%;
+
+.formlogin {
+    width: 100%;
+    max-width: 400px;
 }
-.formlogin fieldset{
+
+.formlogin fieldset {
     background: #ffffff;
-    box-shadow: 2px 2px 5px #959595;
     border: 1px solid;
     border-radius: 10px;
-    margin-top: 100px;
-    position: absolute;
+    padding: 20px;
+    margin: auto;
 }
-.formlogin label{
+
+.formlogin label {
     margin-top: 10px;
     display: block;
     margin-bottom: 5px;
 }
-#nome, #email,#pass, .btm{
+
+#nome, #email, #pass, .btm {
     display: inline-block;
-    width: 500px;
+    width: 100%;
     box-sizing: border-box;
     padding: 10px;
-    font-size: 20px;
-    border-radius: 10px;
-    border: 1px solid #000000;
+    font-size: 15px;
+    border-radius: 5px;
     margin-bottom: 15px;
 }
-.btm{
+
+.btm {
     margin-top: 15px;
-    background-color:#dbff22;
+    background-color: #dbff22;
     border: 1px solid #dbff22;
     color: #000000;
-    padding:10px;
-    border-radius: 100px;
+    padding: 10px;
+    border-radius: 5px;
     font-size: 15px;
     cursor: pointer;
 }
-a input[type="submit"]:hover{
+
+a input[type="submit"]:hover {
     background-color: #8d50ff;
 }
 
-.fixarRodape {
-    bottom: 0;
-    position: fixed;
+.input-cadastro {
+    padding: 8px;
     width: 100%;
-    text-align: center;
-    background: #8d50ff;
-    padding: 10px;
-    font-size: 12px;
-    color: #dbff22;
-    letter-spacing: 5px;
-  }
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.048);
+}
