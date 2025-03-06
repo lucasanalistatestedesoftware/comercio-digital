@@ -13,9 +13,6 @@
 <body>
     <header>
         <div class="cabecario">
-            <div class="texto-logo">
-                <img src="../lucas/img-L/2.png" id="logo-2" alt="logo" style="height: 50px;" onerror="this.src='fallback-image.png';">
-            </div>
             <h1 style="color: #dbff22; font-size: 2rem; font-weight: bold; margin: 0; cursor: pointer;" onclick="window.location.href = '../index.html';">COMÉRCIO DIGITAL</h1>
         </div>
         <nav>
@@ -30,11 +27,23 @@
         </nav>
     </header>
 
-    <div class="checkout-container">
-        <h2 class="checkout-title">Checkout</h2>
-        <ul id="checkout-list" class="checkout-list"></ul>
-        <p id="checkout-total" class="checkout-total">Total: R$ 0,00</p>
-        <button class="botao-finalizar">Confirmar Pedido</button>
+    <div class="checkout-wrapper">
+        <div class="checkout-content">
+            <h2 class="checkout-title">Carrinho (<?php echo count($cart); ?>)</h2>
+            <div class="cart-section">
+                <div class="cart-items">
+                    <ul id="checkout-list" class="checkout-list"></ul>
+                </div>
+                <div class="cart-summary">
+                    <h3>Resumo</h3>
+                    <p>Subtotal: <span id="subtotal">R$ 0,00</span></p>
+                    <p>Frete: <span id="frete">R$ 28,10</span></p>
+                    <p>Estimativa total: <span id="total-estimado">R$ 0,00</span></p>
+                    <p>Impostos estimados: <span id="impostos">R$ 15,04</span> <small>(O imposto de importação final será calculado na próxima página)</small></p>
+                    <button class="botao-continuar">Continuar (1)</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
