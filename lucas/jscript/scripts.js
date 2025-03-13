@@ -1,25 +1,153 @@
+// Definindo os infoprodutos
+const infoprodutos = [
+    { id: "marketing_digital", nome: "Marketing Digital para Infoprodutores: Além das Fórmulas e Métodos...", preco: 19.90, img: "https://m.media-amazon.com/images/I/71+ESogMqXL._AC_UL320_.jpg", link: "#" },
+    { id: "formula_lancamento", nome: "A fórmula do lançamento", preco: 56.97, img: "https://m.media-amazon.com/images/I/71DvY8PIuxL._AC_UL320_.jpg", link: "#" },
+    { id: "gestao_digital", nome: "Gestão digital: O guia essencial para alcançar o sucesso no mercado on-line", preco: 19.90, img: "https://m.media-amazon.com/images/I/513AyRmzGyL._AC_UL320_.jpg", link: "#" },
+    { id: "apaixone_se_problema", nome: "Apaixone-se Pelo Problema, Não Pela Solução: Como Ganhar Dinheiro Online", preco: 45.90, img: "https://m.media-amazon.com/images/I/81LQ5Mr3cAL._SL1500_.jpg", link: "#" },
+    { id: "ai_superpowers", nome: "AI Superpowers: China, Vale do Silício e a Nova Ordem Mundial", preco: 46.16, img: "https://m.media-amazon.com/images/I/81LVeClECoL._SL1500_.jpg", link: "#" }
+];
+
+// Variável global para o carrinho
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || {};
+
 document.addEventListener("DOMContentLoaded", function () {
-    // Carrega o carrinho do localStorage ou inicia vazio como objeto
-    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || {};
+    console.log("DOM carregado, iniciando scripts...");
+    console.log("Carrinho inicial:", carrinho);
+
+    // Renderiza os infoprodutos
+    const container = document.getElementById("infoprodutos");
+    if (container) {
+        console.log("Renderizando infoprodutos...");
+        container.innerHTML = ""; // Limpa o conteúdo estático
+        infoprodutos.forEach(produto => {
+            const card = document.createElement("div");
+            card.className = "anuncio"; // Alterado de infoproduto para anuncio
+            card.innerHTML = `
+                <img class="suple" src="${produto.img}" alt="${produto.nome}">
+                <h3>${produto.nome}</h3>
+                <p class="preco">R$${produto.preco.toFixed(2)}</p>
+                <span class="rating">★★★★★ (50+ vendidos)</span>
+                <a href="${produto.link}" class="infosaiba-mais" data-id="${produto.id}" data-nome="${produto.nome}" data-preco="${produto.preco}">Saiba Mais</a>
+                <a href="#" class="botao-adicionar infocomprar" data-id="${produto.id}" data-nome="${produto.nome}" data-preco="${produto.preco}">Adicionar ao Carrinho</a>
+            `;
+            container.appendChild(card);
+        });
+        console.log("Infoprodutos renderizados:", infoprodutos.length, "itens");
+    } else {
+        console.error("Elemento #infoprodutos não encontrado!");
+    }
+
+    // Configura o slider-2 (mantém sua lógica original)
+    function iniciarSegundoSlider() {
+        const slides2 = document.querySelector(".slides-2");
+        let slideIndex = 0;
+
+        if (!slides2) {
+            console.error("Elemento .slides-2 não encontrado para o segundo slider.");
+            return;
+        }
+
+        function moveSlide() {
+            slideIndex = (slideIndex + 1) % 3;
+            slides2.style.transform = `translateX(-${slideIndex * 33.33}%)`;
+        }
+
+        setInterval(moveSlide, 3000);
+    }
+
+    iniciarSegundoSlider();
+
+    // Carrossel
+    const carousel = document.querySelector(".carousel");
+    const items = document.querySelectorAll(".carousel-item");
+    let indexCarousel = 0;
+    const itemWidth = items[0]?.offsetWidth + 20 || 0; // Adiciona margem
+    const totalItems = items.length;
+
+    function updateCarousel() {
+        if (carousel) {
+            carousel.style.transform = `translateX(${-indexCarousel * itemWidth}px)`;
+        }
+    }
+
+    function nextCarousel() {
+        indexCarousel = (indexCarousel + 1) % totalItems;
+        updateCarousel();
+    }
+
+    if (carousel && items.length > 0) {
+        setInterval(nextCarousel, 3000);
+    }
+
+    // Mini Slide e Frases Dinâmicas (unificado)
+    const frases = [
+        "Neo-Commerce Brasil",
+        "Frete Grátis para todo o Brasil!",
+        "Descontos imperdíveis, aproveite agora!",
+        "Parcelamos suas compras em até 12x sem juros!",
+        "Ganhe brindes em compras acima de R$ 199!"
+    ];
+
+    let indexFrase = 0;
+    const fraseElemento = document.querySelector(".mini-slide-text");
+
+    function trocarFrase() {
+        const slides = document.querySelectorAll(".mini-slide-text");
+        slides.forEach(slide => slide.classList.remove("active"));
+        indexFrase = (indexFrase + 1) % frases.length;
+        slides[indexFrase % slides.length].textContent = frases[indexFrase];
+        slides[indexFrase % slides.length].classList.add("active");
+    }
+
+    if (fraseElemento) {
+        fraseElemento.textContent = frases[0];
+        fraseElemento.classList.add("active");
+        setInterval(trocarFrase, 3000);
+    }
+
+    // Atualiza o carrinho ao carregar a página
     atualizarCarrinho();
 
-    console.log("DOM carregado em index.html. Carrinho inicial:", carrinho);
-
-    // Configura os botões "Adicionar ao carrinho"
-    const botoesAdicionar = document.querySelectorAll(".botao-adicionar");
+    // Configura os botões "Adicionar ao Carrinho" e "Comprar Agora"
+    const botoesAdicionar = document.querySelectorAll(".botao-adicionar, .infocomprar");
     console.log("Botões de adicionar encontrados:", botoesAdicionar.length);
     botoesAdicionar.forEach(botao => {
         botao.addEventListener("click", function (event) {
             event.preventDefault();
-            const anuncio = botao.closest(".anuncio");
-            const produtoNome = anuncio.querySelector("h3").textContent.trim();
-            const produtoPreco = parseFloat(anuncio.querySelector(".preco").textContent.replace("R$", "").replace(",", "."));
-            const produtoId = botao.getAttribute("onclick").match(/'([^']+)'/)[1]; // Pega o ID do onclick
+            const anuncio = botao.closest(".anuncio") || botao.closest(".produto-card");
+            let produtoNome, produtoPreco, produtoId;
+
+            if (botao.classList.contains("infocomprar")) {
+                produtoId = botao.getAttribute("data-id");
+                produtoNome = botao.getAttribute("data-nome");
+                produtoPreco = parseFloat(botao.getAttribute("data-preco"));
+            } else {
+                produtoNome = anuncio.querySelector("h3").textContent.trim();
+                produtoPreco = parseFloat(anuncio.querySelector(".preco").textContent.replace("R$", "").replace(",", "."));
+                produtoId = botao.getAttribute("data-id") || `produto-${Date.now()}`;
+            }
             adicionarAoCarrinho(produtoId, produtoNome, produtoPreco);
         });
     });
 
-    // Adiciona item ao carrinho
+    // Configura os botões "Ver Mais" e "Saiba Mais"
+    const botoesVerMais = document.querySelectorAll(".botao-ver-mais, .infosaiba-mais");
+    console.log("Botões Ver Mais/Saiba Mais encontrados:", botoesVerMais.length);
+    botoesVerMais.forEach(botao => {
+        botao.addEventListener("click", function (event) {
+            event.preventDefault();
+            const id = botao.getAttribute("data-id");
+            const nome = botao.getAttribute("data-nome");
+            const preco = parseFloat(botao.getAttribute("data-preco")) || 0;
+            if (botao.classList.contains("botao-ver-mais")) {
+                window.showMore(botao.closest(".category-section").id);
+            } else {
+                verMais(id, nome, preco);
+            }
+        });
+    });
+
+    // Função para adicionar ao carrinho
     function adicionarAoCarrinho(id, nome, preco) {
         console.log("Adicionando ao carrinho:", { id, nome, preco });
         if (carrinho[id]) {
@@ -30,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
         salvarCarrinho();
         atualizarCarrinho();
         exibirCarrinho();
+        alert(`${nome} foi adicionado ao carrinho!`);
     }
 
     // Salva o carrinho no localStorage
@@ -41,36 +170,26 @@ document.addEventListener("DOMContentLoaded", function () {
     // Atualiza o contador no ícone do carrinho
     function atualizarCarrinho() {
         const carrinhoIcon = document.querySelector(".bntcar");
-        let contador = carrinhoIcon.querySelector(".contador");
+        let contador = carrinhoIcon ? carrinhoIcon.querySelector(".contador") : null;
         let totalItens = Object.values(carrinho).reduce((acc, item) => acc + item.quantity, 0);
 
         console.log("Atualizando carrinho. Total de itens:", totalItens);
 
         if (totalItens > 0) {
-            if (!contador) {
+            if (!contador && carrinhoIcon) {
                 contador = document.createElement("span");
                 contador.classList.add("contador");
                 carrinhoIcon.appendChild(contador);
             }
-            contador.textContent = totalItens;
+            if (contador) {
+                contador.textContent = totalItens;
+            }
         } else {
             if (contador) {
                 contador.remove();
                 console.log("Carrinho vazio, contador removido.");
             }
         }
-    }
-
-    // Abre o carrinho ao clicar no botão
-    const botaoCarrinho = document.querySelector(".bntcar");
-    if (botaoCarrinho) {
-        console.log("Botão do carrinho encontrado.");
-        botaoCarrinho.addEventListener("click", () => {
-            console.log("Clique no botão do carrinho detectado.");
-            exibirCarrinho();
-        });
-    } else {
-        console.error("Botão .bntcar não encontrado no DOM.");
     }
 
     // Exibe o carrinho com os itens
@@ -109,6 +228,18 @@ document.addEventListener("DOMContentLoaded", function () {
         centralizarCarrinho();
     }
 
+    // Abre o carrinho ao clicar no botão
+    const botaoCarrinho = document.querySelector(".bntcar");
+    if (botaoCarrinho) {
+        console.log("Botão do carrinho encontrado.");
+        botaoCarrinho.addEventListener("click", () => {
+            console.log("Clique no botão do carrinho detectado.");
+            exibirCarrinho();
+        });
+    } else {
+        console.error("Botão .bntcar não encontrado no DOM.");
+    }
+
     // Fecha o carrinho
     const fecharCarrinho = document.querySelector("#fechar-carrinho");
     if (fecharCarrinho) {
@@ -118,6 +249,34 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     } else {
         console.error("Botão #fechar-carrinho não encontrado.");
+    }
+
+    // Evento para o botão "Prosseguir"
+    const prosseguirCheckout = document.getElementById("prosseguir-checkout");
+    if (prosseguirCheckout) {
+        console.log("Botão #prosseguir-checkout encontrado.");
+        prosseguirCheckout.addEventListener("click", function () {
+            if (Object.keys(carrinho).length > 0) {
+                console.log("Redirecionando para checkout.html com carrinho:", carrinho);
+                window.location.href = "/lucas/checkout-pages/checkout.html";
+            } else {
+                alert("Adicione itens ao carrinho antes de prosseguir!");
+                console.log("Tentativa de redirecionar com carrinho vazio.");
+            }
+        });
+    } else {
+        console.error("Botão #prosseguir-checkout não encontrado.");
+    }
+
+    // Função para "Ver Mais"
+    function verMais(id, nome, preco) {
+        console.log(`Clicou em Ver Mais: ${nome}, ID: ${id}`);
+        if (id === "airpod_replica") {
+            console.log("Redirecionando para checkout.html para AirPod...");
+            window.location.href = "/lucas/checkout-pages/checkout.html";
+        } else {
+            alert(`Mais detalhes sobre ${nome}: Preço R$${preco.toFixed(2)}. Clique em 'Comprar Agora' para prosseguir!`);
+        }
     }
 
     // Gerencia mudanças na quantidade
@@ -144,23 +303,6 @@ document.addEventListener("DOMContentLoaded", function () {
             exibirCarrinho();
         }
     });
-
-    // Evento para o botão "Prosseguir"
-    const finalizarCompraBtn = document.getElementById("finalizar-compra");
-    if (finalizarCompraBtn) {
-        console.log("Botão #finalizar-compra encontrado.");
-        finalizarCompraBtn.addEventListener("click", function () {
-            if (Object.keys(carrinho).length > 0) {
-                console.log("Redirecionando para checkout.html com carrinho:", carrinho);
-                window.location.href = "checkout-pages/checkout.html"; // Ajustado para o caminho correto a partir de /lucas/1templates-L/
-            } else {
-                alert("Adicione itens ao carrinho antes de prosseguir!");
-                console.log("Tentativa de redirecionar com carrinho vazio.");
-            }
-        });
-    } else {
-        console.error("Botão #finalizar-compra não encontrado.");
-    }
 
     // Lógica para arrastar o carrinho
     const carrinhoDiv = document.querySelector("#carrinho");
@@ -198,7 +340,6 @@ document.addEventListener("DOMContentLoaded", function () {
             isDragging = false;
         }
 
-        // Função para centralizar o carrinho
         function centralizarCarrinho() {
             const windowWidth = window.innerWidth;
             const windowHeight = window.innerHeight;
@@ -212,17 +353,16 @@ document.addEventListener("DOMContentLoaded", function () {
             carrinhoDiv.style.top = `${currentY}px`;
         }
 
-        // Centraliza ao carregar a página
         centralizarCarrinho();
     }
 
-    // Slideshow functionality
+    // Slideshow Principal
     function iniciarSlideshow() {
         const slides = document.querySelectorAll(".slideshow-slide");
         let currentSlide = 0;
 
         if (slides.length === 0) {
-            console.error("Nenhum slide encontrado no slideshow.");
+            console.error("Nenhum slide encontrado no slideshow principal.");
             return;
         }
 
@@ -238,17 +378,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
     iniciarSlideshow();
 
-    // Função opcional para "Ver Mais" (descomente e ajuste conforme necessário)
-    /*
-    const botoesVerMais = document.querySelectorAll(".botao-ver-mais");
-    botoesVerMais.forEach(botao => {
-        botao.addEventListener("click", (event) => {
-            event.preventDefault();
-            const categoria = botao.closest(".category-section").querySelector(".category-title").textContent;
-            console.log("Clique em Ver Mais para a categoria:", categoria);
-            // Exemplo: redirecionar para uma página específica ou carregar mais produtos
-            window.location.href = `/${categoria.toLowerCase().replace("👾 ", "").replace(" 👾", "").replace(" ", "-")}.html`;
+    // Menu Lateral
+    const menuToggle = document.querySelector(".menu-toggle");
+    const closeMenu = document.querySelector(".close-menu");
+    const menu = document.querySelector(".menu");
+
+    if (menuToggle && closeMenu && menu) {
+        menuToggle.addEventListener("click", () => {
+            menu.style.transform = "translateX(0)";
+            console.log("Menu lateral aberto.");
         });
-    });
-    */
+        closeMenu.addEventListener("click", () => {
+            menu.style.transform = "translateX(-100%)";
+            console.log("Menu lateral fechado.");
+        });
+    } else {
+        console.error("Elementos do menu lateral (.menu-toggle, .close-menu ou .menu) não encontrados.");
+    }
+
+    // Função para "Ver Mais" global
+    window.showMore = function (sectionId) {
+        const section = document.getElementById(sectionId);
+        const hiddenItems = section.querySelectorAll(".anuncio.hidden");
+        hiddenItems.forEach(item => {
+            item.classList.remove("hidden");
+        });
+
+        const verMaisBtn = section.querySelector(".botao-ver-mais");
+        if (section.querySelectorAll(".anuncio.hidden").length === 0 && verMaisBtn) {
+            verMaisBtn.style.display = "none";
+        }
+    };
 });

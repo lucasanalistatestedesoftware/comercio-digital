@@ -6,57 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/lucas/css/estilo.css">
     <script src="https://kit.fontawesome.com/32eee19a01.js" crossorigin="anonymous"></script>
-    <script src="js/Jquery-3.6.3.js"></script>
+    <script src="/lucas/js/Jquery-3.6.3.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Comércio Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet"> <!-- Fonte estilizada para o logo -->
+    <title>Neo-Commerce</title>
 </head>
 <body>
+    <!-- Header Ajustado -->
     <header>
+        <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        <div class="menu">
+            <button class="close-menu"><i class="fa-solid fa-times"></i></button>
+            <a href="/lucas/cadastro.html">Cadastro</a>
+            <a href="/lucas/login.html">Login</a>
+            <a href="https://www.instagram.com/comerciodigitalbrasil/" target="_blank">Instagram</a>
+            <a href="/lucas/Afiliados.html">Afiliados</a>
+        </div>
         <div class="cabecario">
             <div class="texto-logo">
-                <img src="/lucas/img-L/2.png" id="logo-2" alt="logo">
+                <span class="neo-commerce-logo">NEO-COMMERCE</span>
             </div>
         </div>
-        <nav>
-            <div>
-                <form action="https://google.com/search" method="get">
-                    <input class="pesquisa" type="text" name="q" placeholder=" Pesquise no ComércioDigital.com.br">
-                    <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </div>
-            <div class="menu">
-                <ul>
-                    <li><a href="cadastro.html">cadastro</a></li>
-                    <li><a href="login.html">login</a></li>
-                    <li><a href="https://www.instagram.com/comerciodigitalbrasil/" target="_blank">instagram</a></li>
-                    <li><a href="Afiliados.html">Afiliados</a></li>
-                </ul>
-            </div>
-        </nav>
+        <div class="pesquisa-container">
+            <form action="https://google.com/search" method="get">
+                <input class="pesquisa" type="text" name="q" placeholder="Pesquise no Neo-Commerce">
+                <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div class="user-icons">
+            <a href="/lucas/login.html" class="icon-link"><i class="fa-solid fa-user"></i> Entre/Registrar</a>
+            <a href="#" class="icon-link"><i class="fa-solid fa-cart-shopping"></i> Seus Pedidos</a>
+        </div>
     </header>
 
-    <div>
-        <button class="bntcar"><i class="fa-solid fa-cart-plus fa-shake"></i></button>
-    </div>
-    <div id="carrinho" class="carrinho" style="display: none;">
-        <div id="carrinho-header" class="carrinho-header">
-            <h3>Itens no Carrinho</h3>
-        </div>
-        <ul id="lista-carrinho">
-            <!-- Itens serão adicionados aqui dinamicamente -->
-        </ul>
-        <button id="fechar-carrinho">Fechar</button>
-        <button id="finalizar-compra">Prosseguir</button>
-    </div>
-    <div>
-        <button class="logincliente"><i class="fa-solid fa-user"></i></button>
-    </div>
-
+    <!-- Mini Slide -->
     <nav class="menu-color">
         <div class="menu-2">
-            <h3 style="font-weight: 500;">Comércio Digital Brasil</h3>
+            <div class="mini-slide">
+                <span class="mini-slide-text active">Neo-Commerce Brasil</span>
+                <span class="mini-slide-text"></span> <!-- Segundo texto será preenchido dinamicamente -->
+                <span class="mini-slide-text"></span> <!-- Terceiro texto será preenchido dinamicamente -->
+                <span class="mini-slide-text"></span> <!-- Quarto texto será preenchido dinamicamente -->
+            </div>
         </div>
     </nav>
 
@@ -73,206 +66,328 @@
     </div>
 
     <!-- Seção "Mais Vendidos" -->
-    <section class="category-section">
+    <section class="category-section" id="mais-vendidos">
         <hr style="border: 0.5px solid #0000002a;">
         <h2 class="category-title">👾 Mais Vendidos 👾</h2>
         <div class="category-container container-4">
             <div class="anuncio-blocos">
-                <!-- Limitando a 8 produtos -->
                 <div class="anuncio">
                     <img src="/lucas/img-L/produtos/airpods pro 3.png" class="suple" alt="AirPods Pro 2023 3ª Geração - Réplica Premium">
                     <h3>AirPods Pro 2023 Réplica</h3>
                     <p class="preco">R$239,99</p>
                     <span class="rating">★★★★★ (1000+ vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('airpods', 'AirPods Pro 2023 3ª Geração - Réplica Premium', 239.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="airpods" data-nome="AirPods Pro 2023 3ª Geração - Réplica Premium" data-preco="239.99">Adicionar ao carrinho</a>
                 </div>
                 <div class="anuncio">
                     <img src="https://img.ltwebstatic.com/gspCenter/goodsImage/2022/12/29/6437935512_1016474/34A65FADC67C8B41162D6584C12E7421_thumbnail_600x.jpg" class="suple" alt="Smart Watch Smartband M7 Relógio Inteligente Android Ios">
                     <h3>Smart Watch M7</h3>
                     <p class="preco">R$69,99</p>
                     <span class="rating">★★★★★ (135 vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('smartwatch_m7', 'Smart Watch Smartband M7 Relógio Inteligente Android Ios', 69.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="smartwatch_m7" data-nome="Smart Watch Smartband M7 Relógio Inteligente Android Ios" data-preco="69.99">Adicionar ao carrinho</a>
                 </div>
                 <div class="anuncio">
-                    <img src="https://m.media-amazon.com/images/I/51M6C02w4FL.__AC_SX300_SY300_QL70_ML2_.jpg" class="suple" alt="Relógio Smartwatch Android Ios Inteligente D20 Bluetooth">
+                    <img src="https://m.media-amazon.com/images/I/51M6C02w4FL.__AC_SY300_SY300_QL70_ML2_.jpg" class="suple" alt="Relógio Smartwatch Android Ios Inteligente D20 Bluetooth">
                     <h3>Smartwatch D20</h3>
                     <p class="preco">R$49,99</p>
                     <span class="rating">★★★★★ (8 vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('smartwatch_d20', 'Relógio Smartwatch Android Ios Inteligente D20 Bluetooth', 49.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="smartwatch_d20" data-nome="Relógio Smartwatch Android Ios Inteligente D20 Bluetooth" data-preco="49.99">Adicionar ao carrinho</a>
                 </div>
                 <div class="anuncio">
                     <img src="/lucas/img-L/produtos/garrafater.png" class="suple" alt="Garrafa Térmica Termômetro Display Led 500 ML Cor:Branco">
                     <h3>Garrafa Térmica 500 ML</h3>
                     <p class="preco">R$69,99</p>
                     <span class="rating">★★★★★ (100+ vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('garrafa_termica', 'Garrafa Térmica Termômetro Display Led 500 ML Cor:Branco', 69.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="garrafa_termica" data-nome="Garrafa Térmica Termômetro Display Led 500 ML Cor:Branco" data-preco="69.99">Adicionar ao carrinho</a>
                 </div>
-                <div class="anuncio">
+                <div class="anuncio hidden">
                     <img src="/lucas/img-L/produtos/fones.png" class="suple" alt="Fone De Ouvido Carro S/fio Bluetooth 5.0 S109 Envio Imediato">
                     <h3>Fone Bluetooth S109</h3>
                     <p class="preco">R$20,50</p>
                     <span class="rating">★★★★★ (135 vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('fone_bluetooth', 'Fone De Ouvido Carro S/fio Bluetooth 5.0 S109 Envio Imediato', 20.50); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="fone_bluetooth" data-nome="Fone De Ouvido Carro S/fio Bluetooth 5.0 S109 Envio Imediato" data-preco="20.50">Adicionar ao carrinho</a>
                 </div>
-                <div class="anuncio">
+                <div class="anuncio hidden">
                     <img src="/lucas/img-L/produtos/smartband (1).jpg" class="suple" alt="Relógio De Pulso Digital Com LED M4 Esportivo A prova água feminino masculino">
                     <h3>Relógio LED M4</h3>
                     <p class="preco">R$19,99</p>
                     <span class="rating">★★★★★ (8 vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('smartband_m4', 'Relógio De Pulso Digital Com LED M4 Esportivo A prova água feminino masculino', 19.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="smartband_m4" data-nome="Relógio De Pulso Digital Com LED M4 Esportivo A prova água feminino masculino" data-preco="19.99">Adicionar ao carrinho</a>
                 </div>
-                <!-- Limitado a 6 produtos nesta categoria, mantendo o limite de 8 com placeholders -->
-                <div class="anuncio" style="display: none;">
-                    <!-- Placeholder para mais produtos, se necessário -->
+                <div class="anuncio hidden">
+                    <img src="https://m.media-amazon.com/images/I/61WjN+4xG7L._AC_SL1500_.jpg" class="suple" alt="AirPod Réplica Pro 2ª Geração, Bluetooth, Branco">
+                    <h3>AirPod Réplica Pro 2ª Geração</h3>
+                    <p class="preco">R$299,90</p>
+                    <span class="rating">★★★★★ (500+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" data-id="airpod_replica_pro" data-nome="AirPod Réplica Pro 2ª Geração, Bluetooth, Branco" data-preco="299.90">Adicionar ao carrinho</a>
                 </div>
-                <div class="anuncio" style="display: none;">
-                    <!-- Placeholder para mais produtos, se necessário -->
+                <div class="anuncio hidden">
+                    <img src="https://m.media-amazon.com/images/I/71dHJXnyfWS._AC_SY879_.jpg" class="suple" alt="Liquidificador Turbo Power, Mondial, Branco/Cinza, 550W, 110V - L-99 WG">
+                    <h3>Liquidificador Mondial Branco</h3>
+                    <p class="preco">R$90,16</p>
+                    <span class="rating">★★★★★ (300+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" data-id="liquidificador_mondial_branco" data-nome="Liquidificador Turbo Power, Mondial, Branco/Cinza, 550W, 110V - L-99 WG" data-preco="90.16">Adicionar ao carrinho</a>
                 </div>
             </div>
-            <button class="scroll-left-btn-1"><i class="fa-solid fa-angle-left"></i></button>
-            <button class="scroll-right-btn-1"><i class="fa-solid fa-angle-right"></i></button>
         </div>
         <div class="ver-mais">
-            <a href="#" class="botao-ver-mais">Ver Mais</a>
+            <a href="#" class="botao-ver-mais" onclick="showMore('mais-vendidos'); return false;">Ver Mais</a>
         </div>
     </section>
 
+    <!-- Segundo Slider -->
+    <div class="slider-2">
+        <div class="slides-2">
+            <div class="slide-im2">
+                <img src="/lucas/img-L/airpods slide.png" alt="Slide 1">
+            </div>
+            <div class="slide-im2">
+                <img src="/lucas/img-L/Smart Watch Smartband M7 Relógio Inteligente Android Ios slide.png" alt="Slide 2">
+            </div>
+            <div class="slide-im2">
+                <img src="/lucas/img-L/stanley slider.png" alt="Slide 3">
+            </div>
+        </div>
+    </div>
+
     <!-- Seção "Roupas" -->
-    <section class="category-section">
+    <section class="category-section" id="roupas">
         <hr style="border: 0.5px solid #0000002a;">
         <h2 class="category-title">👾 Roupas 👾</h2>
         <div class="category-container container-4-2">
             <div class="anuncio-blocos">
-                <!-- Limitando a 8 produtos -->
                 <div class="anuncio">
                     <img src="https://m.media-amazon.com/images/I/41BauTo6uzL._AC_SX679_.jpg" class="suple" alt="Blusa Moletom Casaco Jordan Preto Unissex Tamanho:P;Cor:Preto">
                     <h3>Moletom Jordan Preto</h3>
                     <p class="preco">R$100,99</p>
                     <span class="rating">★★★★★ (1000+ vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('moletom_jordan', 'Blusa Moletom Casaco Jordan Preto Unissex Tamanho:P;Cor:Preto', 100.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="moletom_jordan" data-nome="Blusa Moletom Casaco Jordan Preto Unissex Tamanho:P;Cor:Preto" data-preco="100.99">Adicionar ao carrinho</a>
                 </div>
                 <div class="anuncio">
                     <img src="https://m.media-amazon.com/images/I/51jdjDv4ZEL.__AC_SY445_SX342_QL70_ML2_.jpg" class="suple" alt="Blusa de Frio Moletom Cordão Neon Capuz Bolso Canguru Macio Relaxado">
                     <h3>Moletom Neon</h3>
                     <p class="preco">R$119,99</p>
                     <span class="rating">★★★★★ (135 vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('moletom_neon', 'Blusa de Frio Moletom Cordão Neon Capuz Bolso Canguru Macio Relaxado', 119.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="moletom_neon" data-nome="Blusa de Frio Moletom Cordão Neon Capuz Bolso Canguru Macio Relaxado" data-preco="119.99">Adicionar ao carrinho</a>
                 </div>
                 <div class="anuncio">
                     <img src="https://m.media-amazon.com/images/I/51-QeDJjfXL._AC_SX679_.jpg" class="suple" alt="Moletom masculino com capuz fashion Trends Hip Hop Patchwork Suéter com capuz">
                     <h3>Moletom Hip Hop</h3>
                     <p class="preco">R$155,99</p>
                     <span class="rating">★★★★★ (8 vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('moletom_hiphop', 'Moletom masculino com capuz fashion Trends Hip Hop Patchwork Suéter com capuz', 155.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="moletom_hiphop" data-nome="Moletom masculino com capuz fashion Trends Hip Hop Patchwork Suéter com capuz" data-preco="155.99">Adicionar ao carrinho</a>
                 </div>
                 <div class="anuncio">
                     <img src="https://m.media-amazon.com/images/I/61nrMv5qHSL.__AC_SY445_SX342_QL70_ML2_.jpg" class="suple" alt="Moletom com capuz casual de manga comprida com capuz Color Block">
                     <h3>Moletom Color Block</h3>
                     <p class="preco">R$219,99</p>
                     <span class="rating">★★★★★ (100+ vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('moletom_colorblock', 'Moletom com capuz casual de manga comprida com capuz Color Block', 219.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="moletom_colorblock" data-nome="Moletom com capuz casual de manga comprida com capuz Color Block" data-preco="219.99">Adicionar ao carrinho</a>
                 </div>
-                <div class="anuncio">
+                <div class="anuncio hidden">
                     <img src="https://m.media-amazon.com/images/I/61DVwMmbZNL.__AC_SY445_SX342_QL70_ML2_.jpg" class="suple" alt="Moletom casual masculino feminino com capuz e zíper frontal">
                     <h3>Moletom com Zíper</h3>
                     <p class="preco">R$169,99</p>
                     <span class="rating">★★★★★ (135 vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('moletom_zipper', 'Moletom casual masculino feminino com capuz e zíper frontal', 169.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="moletom_zipper" data-nome="Moletom casual masculino feminino com capuz e zíper frontal" data-preco="169.99">Adicionar ao carrinho</a>
                 </div>
-                <div class="anuncio">
+                <div class="anuncio hidden">
                     <img src="https://m.media-amazon.com/images/I/51uiOnZKDeL._AC_SX522_.jpg" class="suple" alt="Moletom Canguru Graffiti Sad Smile">
                     <h3>Moletom Graffiti</h3>
                     <p class="preco">R$169,99</p>
                     <span class="rating">★★★★★ (8 vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('moletom_graffiti', 'Moletom Canguru Graffiti Sad Smile', 169.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="moletom_graffiti" data-nome="Moletom Canguru Graffiti Sad Smile" data-preco="169.99">Adicionar ao carrinho</a>
                 </div>
-                <!-- Limitado a 6 produtos nesta categoria, mantendo o limite de 8 com placeholders -->
-                <div class="anuncio" style="display: none;">
-                    <!-- Placeholder para mais produtos, se necessário -->
+                <div class="anuncio hidden">
+                    <img src="https://m.media-amazon.com/images/I/81akbZpB4SL._AC_SY500_.jpg" class="suple" alt="Macacão de dormir para bebês Cotton Sleep and Play, Pack of 2 Simple Joys by Carter's Meninas">
+                    <h3>Macacão Bebê Simple Joys</h3>
+                    <p class="preco">R$136,72</p>
+                    <span class="rating">★★★★★ (200+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" data-id="macacao_bebe" data-nome="Macacão de dormir para bebês Cotton Sleep and Play, Pack of 2 Simple Joys by Carter's Meninas" data-preco="136.72">Adicionar ao carrinho</a>
                 </div>
-                <div class="anuncio" style="display: none;">
-                    <!-- Placeholder para mais produtos, se necessário -->
+                <div class="anuncio hidden">
+                    <img src="https://m.media-amazon.com/images/I/51lFeX19tHL._AC_SX522_.jpg" class="suple" alt="Conjunto Infantil Menino Moderno e Estiloso – Kit Regata com Capuz e Bermuda Boyzinho">
+                    <h3>Conjunto Infantil Menino</h3>
+                    <p class="preco">R$59,77</p>
+                    <span class="rating">★★★★★ (150+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" data-id="conjunto_infantil" data-nome="Conjunto Infantil Menino Moderno e Estiloso – Kit Regata com Capuz e Bermuda Boyzinho" data-preco="59.77">Adicionar ao carrinho</a>
                 </div>
             </div>
-            <button class="scroll-left-btn-2"><i class="fa-solid fa-angle-left"></i></button>
-            <button class="scroll-right-btn-2"><i class="fa-solid fa-angle-right"></i></button>
         </div>
         <div class="ver-mais">
-            <a href="#" class="botao-ver-mais">Ver Mais</a>
+            <a href="#" class="botao-ver-mais" onclick="showMore('roupas'); return false;">Ver Mais</a>
         </div>
     </section>
 
     <!-- Seção "Suplementos" -->
-    <section class="category-section">
+    <section class="category-section" id="suplementos">
         <hr style="border: 0.5px solid #0000002a;">
         <h2 class="category-title">👾 Suplementos 👾</h2>
         <div class="category-container container-4-1">
             <div class="anuncio-blocos">
-                <!-- Limitando a 8 produtos -->
                 <div class="anuncio">
                     <img src="https://blog.probiotica.com.br/wp-content/uploads/2016/05/Probiotica2016-PRO-Massa3200-3Kg-Morango-full.png" class="suple" alt="Relógio Smartwatch Android Ios Inteligente D20 Bluetooth">
                     <h3>Smartwatch D20 Sup</h3>
                     <p class="preco">R$39,99</p>
                     <span class="rating">★★★★★ (1000+ vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('smartwatch_d20_sup', 'Relógio Smartwatch Android Ios Inteligente D20 Bluetooth', 39.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="smartwatch_d20_sup" data-nome="Relógio Smartwatch Android Ios Inteligente D20 Bluetooth" data-preco="39.99">Adicionar ao carrinho</a>
                 </div>
                 <div class="anuncio">
                     <img src="https://lojamaxtitanium.vtexassets.com/assets/vtex/assets-builder/lojamaxtitanium.theme/1.4.74-beta.0/placeholders/rewards1___0d25d87cfcf0696f48dc655a289f49ff.png" class="suple" alt="100% Whey Protein Max Titanium (Morango, 900g)">
                     <h3>Whey Max Titanium</h3>
                     <p class="preco">R$119,99</p>
                     <span class="rating">★★★★★ (135 vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('whey_max', '100% Whey Protein Max Titanium (Morango, 900g)', 119.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="whey_max" data-nome="100% Whey Protein Max Titanium (Morango, 900g)" data-preco="119.99">Adicionar ao carrinho</a>
                 </div>
                 <div class="anuncio">
                     <img src="https://static.netshoes.com.br/produtos/creatine-turbo-300g-black-skull/01/G54-4177-001/G54-4177-001_zoom1.jpg?ts=1650625727&ims=544x" class="suple" alt="Massa 3200 probiotica 3KG - baunilha">
                     <h3>Massa 3200 Baunilha</h3>
                     <p class="preco">R$150,99</p>
                     <span class="rating">★★★★★ (8 vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('massa_3200', 'Massa 3200 probiotica 3KG - baunilha', 150.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="massa_3200" data-nome="Massa 3200 probiotica 3KG - baunilha" data-preco="150.99">Adicionar ao carrinho</a>
                 </div>
                 <div class="anuncio">
                     <img src="https://static.netshoes.com.br/produtos/whey-100-hd-refil-900g-black-skull/99/G54-6388-799/G54-6388-799_zoom1.jpg?ts=1663172399&" class="suple" alt="Whey 100% Hd Refil 900g Black Skull">
                     <h3>Whey Black Skull</h3>
                     <p class="preco">R$89,99</p>
                     <span class="rating">★★★★★ (100+ vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('whey_black', 'Whey 100% Hd Refil 900g Black Skull', 89.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="whey_black" data-nome="Whey 100% Hd Refil 900g Black Skull" data-preco="89.99">Adicionar ao carrinho</a>
                 </div>
-                <div class="anuncio">
+                <div class="anuncio hidden">
                     <img src="https://static.netshoes.com.br/produtos/creatina-monohidratada-hardcore-reload-300-gr-integralmedica/01/252-0831-001/252-0831-001_zoom1.jpg?ts=1587553967&ims=544x" class="suple" alt="Creatina Monohidratada Hardcore Reload 300 gr - IntegralMédica">
                     <h3>Creatina Hardcore</h3>
                     <p class="preco">R$159,99</p>
                     <span class="rating">★★★★★ (135 vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('creatina_hardcore', 'Creatina Monohidratada Hardcore Reload 300 gr - IntegralMédica', 159.99); return false;">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="creatina_hardcore" data-nome="Creatina Monohidratada Hardcore Reload 300 gr - IntegralMédica" data-preco="159.99">Adicionar ao carrinho</a>
                 </div>
-                <div class="anuncio">
+                <div class="anuncio hidden">
                     <img src="https://www.gsuplementos.com.br/upload/growth-layout-personalizado/produto/185/produto-selo-topo-new-v3.png" class="suple" alt="100% Whey Protein Gold Standard (909G)">
                     <h3>Whey Gold Standard</h3>
                     <p class="preco">R$39,99</p>
                     <span class="rating">★★★★★ (8 vendidos)</span>
-                    <a href="#" class="botao-adicionar" onclick="addToCart('whey_gold', '100% Whey Protein Gold Standard (909G)', 39.99); return false;">Adicionar ao carrinho</a>
-                </div>
-                <!-- Limitado a 6 produtos nesta categoria, mantendo o limite de 8 com placeholders -->
-                <div class="anuncio" style="display: none;">
-                    <!-- Placeholder para mais produtos, se necessário -->
-                </div>
-                <div class="anuncio" style="display: none;">
-                    <!-- Placeholder para mais produtos, se necessário -->
+                    <a href="#" class="botao-adicionar" data-id="whey_gold" data-nome="100% Whey Protein Gold Standard (909G)" data-preco="39.99">Adicionar ao carrinho</a>
                 </div>
             </div>
-            <button class="scroll-left-btn-3"><i class="fa-solid fa-angle-left"></i></button>
-            <button class="scroll-right-btn-3"><i class="fa-solid fa-angle-right"></i></button>
         </div>
         <div class="ver-mais">
-            <a href="#" class="botao-ver-mais">Ver Mais</a>
+            <a href="#" class="botao-ver-mais" onclick="showMore('suplementos'); return false;">Ver Mais</a>
         </div>
     </section>
 
+    <!-- Seção "Eletrodomésticos" -->
+    <section class="category-section" id="eletrodomesticos">
+        <hr style="border: 0.5px solid #0000002a;">
+        <h2 class="category-title">👾 Eletrodomésticos 👾</h2>
+        <div class="category-container container-4-3">
+            <div class="anuncio-blocos">
+                <div class="anuncio">
+                    <img src="https://m.media-amazon.com/images/I/71KFAoTV+hL._AC_SY300_SX300_.jpg" class="suple" alt="Liquidificador Turbo Power, Mondial, Preto, 550W, 110V - L-99 FB">
+                    <h3>Liquidificador Mondial Preto</h3>
+                    <p class="preco">R$87,20</p>
+                    <span class="rating">★★★★★ (200+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" data-id="liquidificador_mondial_preto" data-nome="Liquidificador Turbo Power, Mondial, Preto, 550W, 110V - L-99 FB" data-preco="87.20">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://m.media-amazon.com/images/I/513fPiU+GkL._AC_UL320_.jpg" class="suple" alt="Liquidificador Mondial Turbo Power L-99-FR com Filtro 3 Velocidades 500W Vermelho - 220V">
+                    <h3>Liquidificador Mondial Vermelho</h3>
+                    <p class="preco">R$87,20</p>
+                    <span class="rating">★★★★★ (150+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" data-id="liquidificador_mondial_vermelho" data-nome="Liquidificador Mondial Turbo Power L-99-FR com Filtro 3 Velocidades 500W Vermelho - 220V" data-preco="87.20">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://m.media-amazon.com/images/I/71a-aiH-n+L._AC_SY300_SX300_.jpg" class="suple" alt="Batedeira Prática, Mondial, Preto, 400W, 220V - B-44-B">
+                    <h3>Batedeira Mondial Preto</h3>
+                    <p class="preco">R$89,00</p>
+                    <span class="rating">★★★★★ (100+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" data-id="batedeira_mondial" data-nome="Batedeira Prática, Mondial, Preto, 400W, 220V - B-44-B" data-preco="89.00">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio">
+                    <img src="https://m.media-amazon.com/images/I/21+B4Y40m9L._AC_.jpg" class="suple" alt="Mini Triturador Elétrico Portátil de Alimentos - Processador Compacto 250ml - Cortador Eficiente para Cozinha (Branco)">
+                    <h3>Mini Triturador 250ml</h3>
+                    <p class="preco">R$65,01</p>
+                    <span class="rating">★★★★★ (80+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" data-id="mini_triturador" data-nome="Mini Triturador Elétrico Portátil de Alimentos - Processador Compacto 250ml - Cortador Eficiente para Cozinha (Branco)" data-preco="65.01">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio hidden">
+                    <img src="https://m.media-amazon.com/images/I/71eSaLy5sbL._AC_UY218_.jpg" class="suple" alt="Espremedor Turbo Citrus, Mondial, Branco, 25W, 110V - E-01">
+                    <h3>Espremedor Mondial Branco</h3>
+                    <p class="preco">R$61,66</p>
+                    <span class="rating">★★★★★ (120+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" data-id="espremedor_mondial_branco" data-nome="Espremedor Turbo Citrus, Mondial, Branco, 25W, 110V - E-01" data-preco="61.66">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio hidden">
+                    <img src="https://m.media-amazon.com/images/I/71DEK6jSqGL.__AC_SY300_SY300_QL70_ML2_.jpg" class="suple" alt="Espremedor Premium, Mondial, Preto, 30W, 220V - E-02">
+                    <h3>Espremedor Mondial Preto</h3>
+                    <p class="preco">R$59,00</p>
+                    <span class="rating">★★★★★ (90+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" data-id="espremedor_mondial_preto" data-nome="Espremedor Premium, Mondial, Preto, 30W, 220V - E-02" data-preco="59.00">Adicionar ao carrinho</a>
+                </div>
+                <div class="anuncio hidden">
+                    <img src="https://m.media-amazon.com/images/I/71cM7xwJqXL.__AC_SY300_SX300_QL70_ML2_.jpg" class="suple" alt="Cafeteira ECM10 Electrolux">
+                    <h3>Cafeteira Electrolux</h3>
+                    <p class="preco">R$115,90</p>
+                    <span class="rating">★★★★★ (110+ vendidos)</span>
+                    <a href="#" class="botao-adicionar" data-id="cafeteira_electrolux" data-nome="Cafeteira ECM10 Electrolux" data-preco="115.90">Adicionar ao carrinho</a>
+                </div>
+            </div>
+        </div>
+        <div class="ver-mais">
+            <a href="#" class="botao-ver-mais" onclick="showMore('eletrodomesticos'); return false;">Ver Mais</a>
+        </div>
+    </section>
+
+    <!-- Produto em Destaque -->
+    <section class="category-section" id="produto-destaque">
+        <hr style="border: 0.5px solid #0000002a;">
+        <h2 class="category-title">👾 Produto em Destaque 👾</h2>
+        <div class="produto-card">
+            <img src="https://m.media-amazon.com/images/I/81akbZpB4SL._AC_SY500_.jpg" alt="Macacão para bebês">
+            <div class="produto-info">
+                <h3>Macacão para bebês</h3>
+                <p class="preco">R$136,72</p>
+                <p class="parcelamento">em até 12x de R$20,38</p>
+                <div class="opcoes">
+                    <label>Cor:</label>
+                    <div class="cores">
+                        <button style="background-color: black;"></button>
+                        <button style="background-color: navy;"></button>
+                        <button style="background-color: white; border: 1px solid #ccc;"></button>
+                        <button style="background-color: #800020;"></button>
+                    </div>
+                </div>
+                <div class="opcoes">
+                    <label>Tamanho:</label>
+                    <div class="tamanhos">
+                        <button>P</button>
+                        <button>M</button>
+                        <button>G</button>
+                        <button>GG</button>
+                        <button>XG</button>
+                    </div>
+                </div>
+                <div class="botoes">
+                    <a href="#" class="botao-adicionar" data-id="macacao_destaque" data-nome="Macacão para bebês" data-preco="136.72">Adicionar ao carrinho</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção "Infoprodutos Digitais" -->
+    <section class="category-section" id="infoprodutos">
+        <hr style="border: 0.5px solid #0000002a;">
+        <h2 class="category-title">📚 Infoprodutos Digitais 📚</h2>
+        <div class="infoprodutos-container" id="infoprodutos"></div> <!-- Container vazio para renderização dinâmica -->
+        <div class="ver-mais">
+            <a href="#" class="botao-ver-mais" onclick="showMore('infoprodutos'); return false;">Ver Mais</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-around;">
             <div class="contato">
                 <h3 style="color: #fff; font-weight: 500;">Contato</h3>
                 <p>📞 (85) 99999-9999</p>
-                <p>✉ contato@lojavirtual.com</p>
+                <p>✉ contato@neo-commerce.com</p>
             </div>
             <div>
                 <h3 style="color: #fff; font-weight: 500;">Receba Promoções</h3>
@@ -283,9 +398,32 @@
             </div>
         </div>
         <hr style="border: 1px solid rgba(255, 255, 255, 0.336); margin-top: 20px;">
-        <p style="margin-top: 20px; font-size: 14px;">© 2025 Loja Virtual. Todos os direitos reservados.</p>
+        <p style="margin-top: 20px; font-size: 14px;">© 2025 Neo-Commerce. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Carrinho -->
+    <div id="carrinho" class="carrinho" style="display: none;">
+        <div id="carrinho-header" class="carrinho-header">
+            <h3>Itens no Carrinho</h3>
+        </div>
+        <ul id="lista-carrinho">
+            <!-- Itens serão adicionados aqui dinamicamente -->
+        </ul>
+        <button id="fechar-carrinho">Fechar</button>
+        <button id="prosseguir-checkout">Prosseguir</button> <!-- Alterado para prosseguir-checkout -->
+    </div>
+
+    <!-- Botão Flutuante de Carrinho -->
+    <div>
+        <button class="bntcar"><i class="fa-solid fa-cart-plus"></i></button>
+    </div>
+
+    <!-- Botão Flutuante de Login -->
+    <div>
+        <button class="logincliente"><i class="fa-solid fa-user"></i></button>
+    </div>
+
+    <!-- Script Externo -->
     <script src="/lucas/jscript/scripts.js"></script>
 </body>
 </html>

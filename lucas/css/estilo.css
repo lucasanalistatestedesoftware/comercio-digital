@@ -11,62 +11,89 @@ body {
 }
 
 h1,
-h2,
-h3,
+h2 {
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.5px;
+  text-transform: capitalize;
+  color: #222;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: clamp(25px, 5vw, 35px);
+  line-height: 1.5;
+  color: #222;
+  margin: 50px 30px;
+}
+
 h4,
 p {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
-  color: #000;
+  color: #222;
 }
 
+/* Header */
 header {
+  height: auto;
   width: 100%;
-  background-color: #8d50ff;
+  background-color: #1e3a8a;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
-}
-
-#logo-2 {
-  margin-top: -9px;
+  padding: 10px 20px;
+  position: relative;
 }
 
 .cabecario {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .texto-logo {
-  height: 100px;
-  margin: 5px 70px;
-  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.menu li {
-  display: inline-block;
-  margin: 0px 9px;
-}
-
-.menu li a {
-  font-size: 20px;
-  text-decoration: none;
-  color: rgb(255, 255, 255);
+.neo-commerce-logo {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.5rem; /* Aumentado para um visual mais impactante */
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 3px; /* Ajustado para melhor espaçamento */
   text-transform: uppercase;
-  transition: color .3s linear;
+  background: linear-gradient(90deg, #dbff22, #8d50ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Sombra mais pronunciada */
+  margin: 10px 0; /* Espaçamento vertical */
 }
 
-.menu li a:hover {
-  color: #dbff22;
+.pesquisa-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 10px;
 }
 
 .pesquisa {
-  margin-left: 7%;
-  margin-top: 15px;
-  width: 80%;
-  height: 30px;
-  border: none;
-  border-radius: 5px;
+  font-size: 13px;
+  width: 100%;
+  padding: 10px 15px;
+  height: 35px;
+  border: 2px solid #dbff22;
+  border-radius: 25px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
 }
 
 .fa-magnifying-glass {
@@ -80,40 +107,130 @@ header {
 }
 
 .button {
-  background-color: #8d50ff;
+  background-color: #1e3a8a;
   border: transparent;
 }
 
-.menu-2 li {
-  display: inline-block;
-  margin: 0px 9px;
+.user-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 600px;
 }
 
-.menu-2 li a {
-  font-size: 18px;
+.icon-link {
   text-decoration: none;
-  color: rgb(0, 0, 0);
-  text-transform: uppercase;
-  transition: color .3s linear;
+  font-size: 13px;
+  color: #dbff22;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+  gap: 5px;
+  padding: 8px 12px;
 }
 
-.menu-2 li a:hover {
-  color: #8d50ff;
+.icon-link:hover {
+  background: #ffcc33;
+  color: #1e3a8a;
 }
 
+/* Menu Lateral */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: #dbff22;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  padding-top: 90px;
+  z-index: 1000;
+}
+
+.menu a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  padding: 15px;
+}
+
+.menu a:hover {
+  background: #555;
+}
+
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #dbff22;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #000;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1100;
+}
+
+.close-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Menu Color e Mini Slide */
 .menu-color {
   width: 100%;
-  height: 30px;
+  height: 25px;
   background-color: #dbff22;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  position: relative;
+  overflow: hidden;
 }
 
+.menu-2 {
+  width: 100%;
+  text-align: center;
+}
+
+.mini-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.mini-slide-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.mini-slide-text.active {
+  opacity: 1;
+}
+
+/* Slideshow Principal */
 .slideshow-container {
   text-align: center;
   position: relative;
-  height: 300px; /* Reduzido para minimalismo */
+  height: 300px;
   width: 100%;
   overflow: hidden;
 }
@@ -138,100 +255,98 @@ header {
   object-fit: cover;
 }
 
+/* Seções de Produtos */
 .category-section {
   margin: 20px 0;
 }
 
 .category-title {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin: 10px 0;
   color: #000;
 }
 
 .anuncio-blocos {
   display: flex;
-  justify-content: flex-start;
-  gap: 10px; /* Espaço menor entre os itens, como no AliExpress */
-  padding: 0 10px;
-  flex-wrap: wrap; /* Permite que os itens se ajustem em linhas */
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 5px 30px;
 }
 
 .anuncio {
-  width: 180px; /* Reduzido ainda mais para minimalismo, como no AliExpress */
-  height: 350px; /* Reduzido para minimalismo */
-  padding: 5px; /* Padding ainda menor */
-  margin: 5px 0; /* Margem reduzida */
+  width: 250px;
+  height: 400px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  border-radius: 6px; /* Raio de borda reduzido */
-  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15); /* Sombra mais leve */
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
   border: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transição mais rápida */
-  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #fff;
+  text-align: center;
+}
+
+.anuncio.hidden {
+  display: none;
 }
 
 .anuncio:hover {
-  transform: translateY(-2px); /* Movimento de hover reduzido */
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Sombra no hover mais leve */
-}
-
-.anuncio h3 {
-  font-size: 0.9rem; /* Reduzido para minimalismo */
-  margin: 0;
-  margin-bottom: 5px; /* Margem reduzida */
-  text-align: center;
-  flex-grow: 1;
-  display: block;
-  font-weight: 400;
-  white-space: nowrap; /* Evita quebra de linha no título */
-  overflow: hidden;
-  text-overflow: ellipsis; /* Adiciona "..." se o texto for longo */
-}
-
-.anuncio > p {
-  font-weight: 600;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2), 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 .anuncio img {
-  width: 100%; /* Imagem ocupando toda a largura disponível */
-  height: 150px; /* Altura reduzida para minimalismo, como no AliExpress */
+  width: 75%;
+  height: 200px;
   object-fit: cover;
+  border-radius: 10px 10px 0 0;
   display: block;
-  margin: 0 auto 5px; /* Margem reduzida */
+}
+
+.anuncio img:not([src]) {
+  background-color: #ddd;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  text-align: center;
+}
+
+.anuncio h3 {
+  font-size: 1.0rem;
+  margin: 5px 0;
+  font-weight: 400;
 }
 
 .anuncio .preco {
-  font-size: 0.8rem; /* Preço menor */
-  display: block;
-  text-align: center;
-  margin-bottom: 5px; /* Margem reduzida */
-  color: #000;
+  font-size: 1.1rem;
   font-weight: bold;
+  margin: 10px 0;
+  color: #28a745;
 }
 
 .anuncio .rating {
-  font-size: 0.7rem; /* Avaliação menor */
-  display: block;
-  text-align: center;
-  margin-bottom: 5px; /* Margem reduzida */
+  font-size: 0.9rem;
   color: #666;
 }
 
 .anuncio .botao-adicionar {
-  display: inline-block;
+  width: 100%;
   background-color: #dbff22;
-  color: #000000;
-  padding: 6px 10px; /* Padding reduzido */
-  border-radius: 3px; /* Raio de borda reduzido */
+  color: #000;
+  padding: 10px 15px;
+  border-radius: 5px;
   text-decoration: none;
-  text-align: center;
-  border: none;
+  font-size: 0.9rem;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 0.7rem; /* Texto dos botões menor */
-  transition: background-color 0.2s ease; /* Transição mais rápida */
-  width: 100%; /* Botão ocupando toda a largura */
+  transition: background-color 0.3s;
 }
 
 .anuncio .botao-adicionar:hover {
@@ -239,80 +354,356 @@ header {
   color: #fff;
 }
 
-.container-4,
-.container-4-1,
-.container-4-2 {
-  padding: 5px; /* Padding reduzido */
-  overflow-x: hidden; /* Removido scroll horizontal para layout AliExpress */
+/* Estilo para os botões dos infoprodutos */
+.anuncio .infosaiba-mais,
+.anuncio .infocomprar {
+  display: inline-block;
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.anuncio .infosaiba-mais {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.anuncio .infosaiba-mais:hover {
+  background-color: #2980b9;
+}
+
+.anuncio .infocomprar {
+  background-color: #dbff22;
+  color: #000;
+}
+
+.anuncio .infocomprar:hover {
+  background-color: #8d50ff;
+  color: #fff;
+}
+
+/* Seção de Infoprodutos Digitais */
+.category-section#infoprodutos {
+    background-color: #2e2e2e; /* Fundo cinza escuro como na imagem */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.category-section#infoprodutos .category-title {
+    color: #fff; /* Título em branco para contraste */
+}
+
+.category-section#infoprodutos .anuncio-blocos {
+    display: grid; /* Alterado de flex para grid para alinhamento lado a lado */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Mesma configuração das outras seções */
+    gap: 20px;
+    padding: 10px;
+}
+
+.category-section#infoprodutos .anuncio {
+    background-color: #444; /* Fundo mais claro para os cards */
+    border-radius: 10px;
+    padding: 15px;
+    width: 100%; /* Permite que o grid ajuste a largura */
+    max-width: 200px; /* Mantém o tamanho máximo consistente */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    color: #fff; /* Texto em branco para contraste */
+    margin: 0 auto; /* Centraliza o card dentro da célula da grade */
+}
+
+.category-section#infoprodutos .anuncio:hover {
+    transform: scale(1.05);
+}
+
+.category-section#infoprodutos .anuncio img {
+    width: 100%;
+    height: 250px; /* Ajuste para as capas dos livros */
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.category-section#infoprodutos .anuncio h3 {
+    font-size: 0.9rem;
+    margin: 10px 0;
+    color: #fff;
+    line-height: 1.2;
+    height: 60px; /* Limita a altura do título */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.category-section#infoprodutos .anuncio .preco {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #27ae60; /* Verde para o preço, como na imagem */
+    margin: 5px 0;
+}
+
+.category-section#infoprodutos .anuncio .rating {
+    color: #f1c40f;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.category-section#infoprodutos .anuncio .infosaiba-mais,
+.category-section#infoprodutos .anuncio .infocomprar {
+    display: inline-block;
+    width: 48%;
+    padding: 8px 0;
+    margin: 5px 1%;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.category-section#infoprodutos .anuncio .infosaiba-mais {
+    background-color: #8e44ad; /* Roxo, como na imagem */
+    color: #fff;
+}
+
+.category-section#infoprodutos .anuncio .infosaiba-mais:hover {
+    background-color: #732d91;
+}
+
+.category-section#infoprodutos .anuncio .infocomprar {
+    background-color: #27ae60; /* Verde, como na imagem */
+    color: #fff;
+}
+
+.category-section#infoprodutos .anuncio .infocomprar:hover {
+    background-color: #219653;
+}
+
+/* Ajuste para o botão "Ver Mais" da seção */
+.category-section#infoprodutos .ver-mais .botao-ver-mais {
+    background-color: #8e44ad; /* Roxo para combinar com o tema */
+}
+
+.category-section#infoprodutos .ver-mais .botao-ver-mais:hover {
+    background-color: #732d91;
+}
+
+/* Ajustes para os Containers de Produtos */
+.category-container.container-4 .anuncio-blocos,
+.category-container.container-4-1 .anuncio-blocos,
+.category-container.container-4-2 .anuncio-blocos,
+.category-container.container-4-3 .anuncio-blocos,
+.category-container.container-4-4 .anuncio-blocos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+/* Segundo Slider */
+.slider-2 {
+  position: relative;
+  width: 95%;
+  height: 300px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 2000px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.slides-2 {
   display: flex;
-  flex-direction: column;
-  margin-top: 1rem; /* Margem reduzida */
+  width: 300%;
+  transition: transform 0.5s ease-in-out;
 }
 
-.scroll-left-btn-1,
-.scroll-right-btn-1,
-.scroll-left-btn-2,
-.scroll-right-btn-2,
-.scroll-left-btn-3,
-.scroll-right-btn-3 {
-  display: none; /* Removido botões de scroll, como no AliExpress */
-}
-
-.suple {
-  width: 100%; /* Imagem ocupando toda a largura */
-  height: 150px; /* Altura reduzida para minimalismo */
-  margin-top: 2%; /* Margem reduzida */
-  padding: 0; /* Padding removido */
-}
-
-.bntcar {
+.slide-im2 {
+  width: 100%;
+  min-width: 100%;
+  flex: 1;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  width: 25px; /* Tamanho reduzido */
-  height: 25px; /* Tamanho reduzido */
-  font-size: 30px; /* Tamanho do ícone reduzido */
-  border-radius: 50%; /* Mantido redondo */
-  right: 10px;
-  bottom: 10px;
-  background-color: #dbff22;
-  padding: 30px; /* Padding reduzido */
-  cursor: pointer;
-  opacity: 0.9;
-  z-index: 1;
 }
 
-.bntcar:hover {
-  background: #8d50ff;
+.slide-im2 img {
+  width: 40%;
+  height: 70%;
+  object-fit: cover;
 }
 
-.logincliente {
+/* Carrossel */
+.carousel-section {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.carousel-container {
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carousel {
   display: flex;
-  justify-content: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  flex: 0 0 300px; /* Ajuste a largura conforme necessário */
+  margin-right: 20px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Produto em Destaque */
+.produto-card {
+  display: flex;
   align-items: center;
-  position: fixed;
-  width: 25px; /* Tamanho reduzido */
-  height: 25px; /* Tamanho reduzido */
-  font-size: 30px; /* Tamanho do ícone reduzido */
-  border-radius: 50%; /* Mantido redondo */
-  right: 10px;
-  bottom: 80px; /* Posição ajustada para minimalismo */
-  background-color: #dbff22;
-  padding: 30px; /* Padding reduzido */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 750px;
+  margin: 20px auto;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.produto-card img {
+  max-width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.produto-info {
+  flex: 1;
+}
+
+.produto-info h3 {
+  font-size: 20px;
+  margin: 0 0 10px 50px;
+}
+
+.produto-info .preco {
+  font-size: 20px;
+  color: #28a745;
+  font-weight: bold;
+  margin: 10px 0 10px 50px;
+}
+
+.produto-info .parcelamento {
+  font-size: 14px;
+  color: #555;
+  margin-left: 50px;
+}
+
+.opcoes {
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+.opcoes label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.cores,
+.tamanhos {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cores button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid transparent;
   cursor: pointer;
-  opacity: 0.9;
-  z-index: 1;
 }
 
-.logincliente:hover {
-  background: #8d50ff;
+.cores button:hover,
+.tamanhos button:hover {
+  border: 1px solid black;
 }
 
+.tamanhos button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.botoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.botoes a {
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.botao-adicionar {
+  background-color: #dbff22;
+  color: #000;
+}
+
+.botao-adicionar:hover {
+  background-color: #8d50ff;
+  color: #fff;
+}
+
+/* Botão Ver Mais */
+.ver-mais {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.botao-ver-mais {
+  width: 100%;
+  background-color: #ff4d4d;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.botao-ver-mais:hover {
+  background-color: #e04343;
+}
+
+/* Footer */
 footer {
   background-color: #8d50ff;
   color: white;
-  padding: 15px; /* Padding reduzido */
+  padding: 20px;
   text-align: center;
 }
 
@@ -322,7 +713,6 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 10px; /* Espaço reduzido entre elementos */
 }
 
 .contato {
@@ -333,147 +723,210 @@ footer {
 }
 
 .contato > p {
-  margin: 3px 0; /* Margem reduzida */
+  margin: 5px 0;
   color: #ffffff;
-  font-size: 0.9rem; /* Texto menor */
+}
+
+/* Carrinho */
+.bntcar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  border-radius: 100%;
+  right: 20px;
+  bottom: 20px;
+  background-color: #dbff22;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.bntcar:hover {
+  background: #8d50ff;
+}
+
+.contador {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff4d4d;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .carrinho {
   position: fixed;
-  width: 300px; /* Largura reduzida */
-  max-height: 350px; /* Altura reduzida */
+  width: 350px;
+  max-height: 400px;
   background-color: #fff;
-  border: 1px solid #8d50ff; /* Borda mais fina */
-  border-radius: 8px; /* Raio de borda reduzido */
-  padding: 10px; /* Padding reduzido */
+  border: 2px solid #8d50ff;
+  border-radius: 10px;
+  padding: 15px;
   z-index: 1000;
   overflow-y: auto;
   cursor: default;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra mais leve */
 }
 
 .carrinho-header {
   background-color: #8d50ff;
   color: #fff;
-  padding: 5px; /* Padding reduzido */
-  border-radius: 4px 4px 0 0; /* Raio de borda reduzido */
+  padding: 5px 10px;
+  border-radius: 5px 5px 0 0;
   cursor: move;
-  user-select: none;
 }
 
 .carrinho h3 {
   margin: 0;
-  font-size: 1.1rem; /* Título menor */
+  font-size: 1.3rem;
   text-align: center;
 }
 
 #lista-carrinho {
   list-style: none;
   padding: 0;
-  margin: 5px 0; /* Margem reduzida */
+  margin: 10px 0;
 }
 
 #lista-carrinho li {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 5px 0; /* Padding reduzido */
+  padding: 8px 0;
   border-bottom: 1px solid #eee;
-  font-size: 0.8rem; /* Texto menor */
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#lista-carrinho li select {
-  margin-top: 3px; /* Margem reduzida */
-  padding: 2px; /* Padding reduzido */
-  border-radius: 4px; /* Raio de borda reduzido */
-  border: 1px solid #8d50ff;
-  font-size: 0.8rem; /* Texto menor */
+.quantidade {
+  padding: 2px;
+  font-size: 0.9rem;
 }
 
-#lista-carrinho li button,
-#fechar-carrinho,
-#finalizar-compra {
-  background-color: #dbff22;
+.remover {
+  background-color: #ff4d4d;
+  color: #fff;
   border: none;
-  padding: 4px 8px; /* Padding reduzido */
-  border-radius: 4px; /* Raio de borda reduzido */
+  padding: 5px 10px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 0.7rem; /* Texto menor */
-  transition: background-color 0.2s ease; /* Transição mais rápida */
-  margin-top: 4px; /* Margem reduzida */
+  font-size: 0.8rem;
 }
 
-#lista-carrinho li button:hover,
+.remover:hover {
+  background-color: #e04343;
+}
+
+#fechar-carrinho,
+#prosseguir-checkout {
+  width: 100%;
+  background-color: #dbff22;
+  color: #000;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
 #fechar-carrinho:hover,
-#finalizar-compra:hover {
+#prosseguir-checkout:hover {
   background-color: #8d50ff;
   color: #fff;
 }
 
-#lista-carrinho li .remover {
-  background-color: #ff4444;
-  color: #fff;
-}
-
-#lista-carrinho li .remover:hover {
-  background-color: #cc0000;
-}
-
-.contador {
-  position: absolute;
-  top: 3px; /* Posição ajustada para minimalismo */
-  right: 3px; /* Posição ajustada para minimalismo */
-  background-color: #ff4444;
-  color: #fff;
-  border-radius: 50%;
-  width: 16px; /* Tamanho reduzido */
-  height: 16px; /* Tamanho reduzido */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem; /* Texto menor */
-  font-weight: bold;
-}
-
-.ver-mais {
-  text-align: center;
-  margin: 10px 0;
-}
-
-.botao-ver-mais {
-  display: inline-block;
-  background-color: #000; /* Fundo preto, como no AliExpress */
-  color: #fff; /* Texto branco, como no AliExpress */
-  padding: 8px 20px; /* Tamanho ajustado para minimalismo */
-  border-radius: 4px;
-  text-decoration: none;
-  text-align: center;
-  border: none;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: background-color 0.2s ease;
-}
-
-.botao-ver-mais:hover {
-  background-color: #333; /* Tom mais escuro no hover, mantendo minimalismo */
-}
-
+/* Media Queries */
 @media only screen and (max-width: 767px) {
+  header {
+    padding: 10px;
+  }
+
+  .neo-commerce-logo {
+    font-size: 1.8rem; /* Reduzido para mobile */
+    letter-spacing: 2px;
+  }
+
+  .pesquisa-container {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .pesquisa {
+    width: 90%;
+    margin-left: 0;
+  }
+
+  .user-icons {
+    margin-top: 10px;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .icon-link {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
   .slideshow-container {
-      display: none;
+    display: none;
   }
-  nav {
-      display: none;
+
+  .anuncio {
+    width: 45%;
+    height: 350px;
   }
+
+  .anuncio img {
+    height: 150px;
+  }
+
+  .slider-2 {
+    height: 200px;
+  }
+
+  .slide-im2 img {
+    width: 60%;
+    height: 60%;
+  }
+
+  /* Ajuste para os infoprodutos no mobile */
+  .category-container.container-4-4 .anuncio {
+    width: 45%;
+  }
+
+  .category-section#infoprodutos .anuncio-blocos {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajuste para telas menores */
+  }
+
+  .category-section#infoprodutos .anuncio {
+    width: 100%; /* Permite que o grid ajuste a largura */
+  }
+
+  .bntcar {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    right: 10px;
+    bottom: 10px;
+  }
+
   .carrinho {
-      width: 80%; /* Largura reduzida */
-      right: 10%;
-      top: 50px; /* Posição ajustada */
+    width: 300px;
   }
 }
 
 @media only screen and (min-width: 767px) {
   .logincliente {
-      display: none;
+    display: none;
   }
 }
