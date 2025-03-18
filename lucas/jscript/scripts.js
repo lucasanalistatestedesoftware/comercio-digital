@@ -14,14 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM carregado, iniciando scripts...");
     console.log("Carrinho inicial:", carrinho);
 
-    // Renderiza os infoprodutos
+    // Renderiza os infoprodutos sem "Ver Mais/Ver Menos"
     const container = document.getElementById("infoprodutos");
     if (container) {
         console.log("Renderizando infoprodutos...");
         container.innerHTML = ""; // Limpa o conteúdo estático
         infoprodutos.forEach(produto => {
             const card = document.createElement("div");
-            card.className = "anuncio"; // Alterado de infoproduto para anuncio
+            card.className = "anuncio infoproduto";
             card.innerHTML = `
                 <img class="suple" src="${produto.img}" alt="${produto.nome}">
                 <h3>${produto.nome}</h3>
@@ -130,20 +130,54 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Configura os botões "Ver Mais" e "Saiba Mais"
-    const botoesVerMais = document.querySelectorAll(".botao-ver-mais, .infosaiba-mais");
-    console.log("Botões Ver Mais/Saiba Mais encontrados:", botoesVerMais.length);
-    botoesVerMais.forEach(botao => {
+    // Configura os botões "Ver Mais" e "Ver Menos" para outras seções
+    const categorySections = document.querySelectorAll(".category-section");
+    categorySections.forEach(section => {
+        const sectionId = section.id;
+        if (sectionId === "infoprodutos") return; // Ignora a seção de infoprodutos
+
+        const verMaisDiv = section.querySelector(".ver-mais");
+        if (verMaisDiv) {
+            const verMenosDiv = document.createElement("div");
+            verMenosDiv.className = "ver-menos";
+            verMenosDiv.innerHTML = `<button class="botao-ver-menos" style="display: none;">Ver Menos</button>`;
+            section.appendChild(verMenosDiv);
+
+            const botaoVerMais = verMaisDiv.querySelector(".botao-ver-mais");
+            const botaoVerMenos = verMenosDiv.querySelector(".botao-ver-menos");
+
+            botaoVerMais.addEventListener("click", function (event) {
+                event.preventDefault();
+                const hiddenItems = section.querySelectorAll(".anuncio.hidden");
+                hiddenItems.forEach(item => item.classList.remove("hidden"));
+                this.style.display = "none";
+                botaoVerMenos.style.display = "inline-block";
+                console.log(`Botão 'Ver Mais' clicado na seção ${sectionId}, itens exibidos.`);
+            });
+
+            botaoVerMenos.addEventListener("click", function (event) {
+                event.preventDefault();
+                const anuncios = section.querySelectorAll(".anuncio");
+                for (let i = Math.ceil(anuncios.length / 2); i < anuncios.length; i++) {
+                    anuncios[i].classList.add("hidden");
+                }
+                this.style.display = "none";
+                botaoVerMais.style.display = "inline-block";
+                console.log(`Botão 'Ver Menos' clicado na seção ${sectionId}, itens escondidos.`);
+            });
+        }
+    });
+
+    // Configura os botões "Saiba Mais"
+    const botoesSaibaMais = document.querySelectorAll(".infosaiba-mais");
+    console.log("Botões Saiba Mais encontrados:", botoesSaibaMais.length);
+    botoesSaibaMais.forEach(botao => {
         botao.addEventListener("click", function (event) {
             event.preventDefault();
             const id = botao.getAttribute("data-id");
             const nome = botao.getAttribute("data-nome");
             const preco = parseFloat(botao.getAttribute("data-preco")) || 0;
-            if (botao.classList.contains("botao-ver-mais")) {
-                window.showMore(botao.closest(".category-section").id);
-            } else {
-                verMais(id, nome, preco);
-            }
+            verMais(id, nome, preco);
         });
     });
 
@@ -158,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
         salvarCarrinho();
         atualizarCarrinho();
         exibirCarrinho();
-        alert(`${nome} foi adicionado ao carrinho!`);
+        console.log(`${nome} adicionado ao carrinho sem pop-up.`);
     }
 
     // Salva o carrinho no localStorage
@@ -258,7 +292,7 @@ document.addEventListener("DOMContentLoaded", function () {
         prosseguirCheckout.addEventListener("click", function () {
             if (Object.keys(carrinho).length > 0) {
                 console.log("Redirecionando para checkout.html com carrinho:", carrinho);
-                window.location.href = "/lucas/checkout-pages/checkout.html";
+                window.location.href = "/lucas/1templates-L/checkout-pages/checkout.html"; // Caminho atualizado
             } else {
                 alert("Adicione itens ao carrinho antes de prosseguir!");
                 console.log("Tentativa de redirecionar com carrinho vazio.");
@@ -273,7 +307,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`Clicou em Ver Mais: ${nome}, ID: ${id}`);
         if (id === "airpod_replica") {
             console.log("Redirecionando para checkout.html para AirPod...");
-            window.location.href = "/lucas/checkout-pages/checkout.html";
+            window.location.href = "/lucas/1templates-L/checkout-pages/checkout.html"; // Caminho atualizado
         } else {
             alert(`Mais detalhes sobre ${nome}: Preço R$${preco.toFixed(2)}. Clique em 'Comprar Agora' para prosseguir!`);
         }
@@ -395,18 +429,4 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.error("Elementos do menu lateral (.menu-toggle, .close-menu ou .menu) não encontrados.");
     }
-
-    // Função para "Ver Mais" global
-    window.showMore = function (sectionId) {
-        const section = document.getElementById(sectionId);
-        const hiddenItems = section.querySelectorAll(".anuncio.hidden");
-        hiddenItems.forEach(item => {
-            item.classList.remove("hidden");
-        });
-
-        const verMaisBtn = section.querySelector(".botao-ver-mais");
-        if (section.querySelectorAll(".anuncio.hidden").length === 0 && verMaisBtn) {
-            verMaisBtn.style.display = "none";
-        }
-    };
 });

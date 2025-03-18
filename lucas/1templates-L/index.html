@@ -10,8 +10,120 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet"> <!-- Fonte estilizada para o logo -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <title>Neo-Commerce</title>
+    <style>
+        /* Estilos básicos existentes (mantidos para contexto) */
+        * {
+            font-family: "Poppins", serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #000;
+        }
+
+        /* Estilos existentes para infoproduto */
+        .infoproduto {
+            background: #333;
+            color: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 200px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            border: 1px solid #444;
+        }
+
+        .infoproduto:hover {
+            transform: scale(1.05);
+        }
+
+        .infoproduto-img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .infoproduto h2 {
+            font-size: 15px;
+            color: #fff;
+            line-height: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .precoinfo {
+            font-size: 18px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .infobotoes {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .infobotoes a {
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            width: 48%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .infosaiba-mais {
+            background: #555;
+            color: white;
+            border: 1px solid #777;
+        }
+
+        .infosaiba-mais:hover {
+            background: #28a745;
+            color: #fff;
+        }
+
+        .infocomprar {
+            background: #555;
+            color: white;
+            border: 1px solid #777;
+        }
+
+        .infocomprar:hover {
+            background: #28a745;
+            color: #fff;
+        }
+
+        /* Novo estilo para infoprodutos-container */
+        .infoprodutos-container {
+            background-color: #555;
+            display: flex;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 30px; /* Mantido do estilo anterior para espaçamento externo */
+        }
+
+        /* Media Queries (ajuste para responsividade) */
+        @media only screen and (max-width: 767px) {
+            .infoproduto {
+                width: 45%;
+            }
+
+            .infoprodutos-container {
+                padding: 20px;
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header Ajustado -->
@@ -26,7 +138,7 @@
         </div>
         <div class="cabecario">
             <div class="texto-logo">
-                <span class="neo-commerce-logo">NEO-COMMERCE</span>
+                <img src="/lucas/img-L/Roxo_e_Verde_Fofo_e_Divertido_Jogos_e_Tecnologia_Logo__2_-removebg-preview.png" id="logo-2" alt="logo">
             </div>
         </div>
         <div class="pesquisa-container">
@@ -46,12 +158,36 @@
         <div class="menu-2">
             <div class="mini-slide">
                 <span class="mini-slide-text active">Neo-Commerce Brasil</span>
-                <span class="mini-slide-text"></span> <!-- Segundo texto será preenchido dinamicamente -->
-                <span class="mini-slide-text"></span> <!-- Terceiro texto será preenchido dinamicamente -->
-                <span class="mini-slide-text"></span> <!-- Quarto texto será preenchido dinamicamente -->
+                <span class="mini-slide-text"></span>
+                <span class="mini-slide-text"></span>
+                <span class="mini-slide-text"></span>
             </div>
         </div>
     </nav>
+
+    <!-- Seção do Carrossel -->
+    <section class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel" style="transform: translateX(-270px);">
+                <div class="carousel-item">
+                    <img src="/lucas/img-L/./Casa & Decoração.png" alt="Casa">
+                    <p>Casa & Decoração</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="/lucas/img-L/Eletrônicos.png" alt="Eletrônicos">
+                    <p>Eletrônicos</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="/lucas/img-L//Roupas.png" alt="Roupas">
+                    <p>Roupas</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="/lucas/img-L/Eletrodomésticos.png" alt="Eletrodomésticos">
+                    <p>Eletrodomésticos</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div class="slideshow-container">
         <div class="slideshow-slide">
@@ -225,11 +361,11 @@
         <div class="category-container container-4-1">
             <div class="anuncio-blocos">
                 <div class="anuncio">
-                    <img src="https://blog.probiotica.com.br/wp-content/uploads/2016/05/Probiotica2016-PRO-Massa3200-3Kg-Morango-full.png" class="suple" alt="Relógio Smartwatch Android Ios Inteligente D20 Bluetooth">
-                    <h3>Smartwatch D20 Sup</h3>
-                    <p class="preco">R$39,99</p>
+                    <img src="https://blog.probiotica.com.br/wp-content/uploads/2016/05/Probiotica2016-PRO-Massa3200-3Kg-Morango-full.png" class="suple" alt="Massa 3200 probiotica 3KG - morango">
+                    <h3>Massa 3200 Morango</h3>
+                    <p class="preco">R$150,99</p>
                     <span class="rating">★★★★★ (1000+ vendidos)</span>
-                    <a href="#" class="botao-adicionar" data-id="smartwatch_d20_sup" data-nome="Relógio Smartwatch Android Ios Inteligente D20 Bluetooth" data-preco="39.99">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="massa_3200_morango" data-nome="Massa 3200 probiotica 3KG - morango" data-preco="150.99">Adicionar ao carrinho</a>
                 </div>
                 <div class="anuncio">
                     <img src="https://lojamaxtitanium.vtexassets.com/assets/vtex/assets-builder/lojamaxtitanium.theme/1.4.74-beta.0/placeholders/rewards1___0d25d87cfcf0696f48dc655a289f49ff.png" class="suple" alt="100% Whey Protein Max Titanium (Morango, 900g)">
@@ -239,11 +375,11 @@
                     <a href="#" class="botao-adicionar" data-id="whey_max" data-nome="100% Whey Protein Max Titanium (Morango, 900g)" data-preco="119.99">Adicionar ao carrinho</a>
                 </div>
                 <div class="anuncio">
-                    <img src="https://static.netshoes.com.br/produtos/creatine-turbo-300g-black-skull/01/G54-4177-001/G54-4177-001_zoom1.jpg?ts=1650625727&ims=544x" class="suple" alt="Massa 3200 probiotica 3KG - baunilha">
-                    <h3>Massa 3200 Baunilha</h3>
+                    <img src="https://static.netshoes.com.br/produtos/creatine-turbo-300g-black-skull/01/G54-4177-001/G54-4177-001_zoom1.jpg?ts=1650625727&ims=544x" class="suple" alt="Creatina Turbo 300g Black Skull">
+                    <h3>Creatina Black Skull</h3>
                     <p class="preco">R$150,99</p>
                     <span class="rating">★★★★★ (8 vendidos)</span>
-                    <a href="#" class="botao-adicionar" data-id="massa_3200" data-nome="Massa 3200 probiotica 3KG - baunilha" data-preco="150.99">Adicionar ao carrinho</a>
+                    <a href="#" class="botao-adicionar" data-id="creatina_black" data-nome="Creatina Turbo 300g Black Skull" data-preco="150.99">Adicionar ao carrinho</a>
                 </div>
                 <div class="anuncio">
                     <img src="https://static.netshoes.com.br/produtos/whey-100-hd-refil-900g-black-skull/99/G54-6388-799/G54-6388-799_zoom1.jpg?ts=1663172399&" class="suple" alt="Whey 100% Hd Refil 900g Black Skull">
@@ -372,13 +508,9 @@
     </section>
 
     <!-- Seção "Infoprodutos Digitais" -->
-    <section class="category-section" id="infoprodutos">
-        <hr style="border: 0.5px solid #0000002a;">
-        <h2 class="category-title">📚 Infoprodutos Digitais 📚</h2>
-        <div class="infoprodutos-container" id="infoprodutos"></div> <!-- Container vazio para renderização dinâmica -->
-        <div class="ver-mais">
-            <a href="#" class="botao-ver-mais" onclick="showMore('infoprodutos'); return false;">Ver Mais</a>
-        </div>
+    <h1>📚 Infoprodutos Digitais</h1>
+    <section class="infoprodutos-container" id="infoprodutos">
+        <!-- Os infoprodutos serão renderizados dinamicamente pelo JavaScript -->
     </section>
 
     <!-- Footer -->
@@ -410,7 +542,7 @@
             <!-- Itens serão adicionados aqui dinamicamente -->
         </ul>
         <button id="fechar-carrinho">Fechar</button>
-        <button id="prosseguir-checkout">Prosseguir</button> <!-- Alterado para prosseguir-checkout -->
+        <button id="prosseguir-checkout">Prosseguir</button>
     </div>
 
     <!-- Botão Flutuante de Carrinho -->

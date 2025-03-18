@@ -324,6 +324,60 @@ footer p {
   color: #fff;
 }
 
+/* Estilos para o popup de endereço */
+#address-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+#address-popup h2 {
+  font-size: 1.5rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+#address-popup p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#add-address-btn {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+#add-address-btn:hover {
+  background-color: #218838;
+}
+
+#popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
 /* Remoção de estilos redundantes ou não usados */
 .product, .buttons, .product-image, .sidebar, .texto-logo {
   display: none;

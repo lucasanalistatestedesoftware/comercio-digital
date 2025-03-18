@@ -1,11 +1,11 @@
 // Mapeamento de IDs de produtos para caminhos de imagem, com nomes reais das imagens
 const productImages = {
-    'airpods': '../img-L/produtos/airpods pro 3.png',
-    'smartwatch_m7': '../img-L/produtos/Smart Watch Smartband M7.png',
-    'smartwatch_d20': '../img-L/produtos/smartwatchd20.jpg',
-    'garrafa_termica': '../img-L/produtos/garrafater.png',
-    'fone_bluetooth': '../img-L/produtos/fones.png',
-    'smartband_m4': '../img-L/produtos/smartband (1).jpg',
+    'airpods': '../../img-L/produtos/airpods pro 3.png', // Ajustado para o caminho relativo correto
+    'smartwatch_m7': '../../img-L/produtos/Smart Watch Smartband M7.png',
+    'smartwatch_d20': '../../img-L/produtos/smartwatchd20.jpg',
+    'garrafa_termica': '../../img-L/produtos/garrafater.png',
+    'fone_bluetooth': '../../img-L/produtos/fones.png',
+    'smartband_m4': '../../img-L/produtos/smartband (1).jpg',
     'moletom_jordan': 'https://m.media-amazon.com/images/I/41BauTo6uzL._AC_SX679_.jpg',
     'moletom_neon': 'https://m.media-amazon.com/images/I/51jdjDv4ZEL.__AC_SY445_SX342_QL70_ML2_.jpg',
     'moletom_hiphop': 'https://m.media-amazon.com/images/I/51-QeDJjfXL._AC_SX679_.jpg',
@@ -41,7 +41,6 @@ function getProductDetails(productName) {
                 <p><strong>Especificações:</strong> Tela: 1.54" TFT; Bateria: até 7 dias; Conexão: Bluetooth 4.2.</p>
                 <p><strong>Garantia:</strong> 1 ano contra defeitos de fabricação.</p>
             `;
-        // Adicione mais casos para outros produtos conforme necessário
         case 'smartwatch d20':
             return `
                 <p><strong>Descrição:</strong> Relógio Smartwatch Android Ios Inteligente D20 Bluetooth, com monitoramento de atividades e notificações.</p>
@@ -63,6 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Página carregada. Carrinho inicial do localStorage:", cart);
 
     updateCheckout();
+
+    // Exibe o popup de endereço ao carregar a página
+    showAddressPopup();
 
     // Função para atualizar o checkout
     function updateCheckout() {
@@ -99,10 +101,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 const li = document.createElement("li");
-                const imageSrc = productImages[id] || '../img-L/produtos/default.png'; // Imagem padrão se não encontrada
+                const imageSrc = productImages[id] || '../../img-L/produtos/default.png'; // Imagem padrão ajustada
                 li.innerHTML = `
                     <div class="cart-item" data-id="${id}">
-                        <img src="${imageSrc}" alt="${product.name}" class="cart-item-image" onerror="this.src='../img-L/2.png';">
+                        <img src="${imageSrc}" alt="${product.name}" class="cart-item-image" onerror="this.src='../../img-L/2.png';">
                         <span class="checkout-item-name">${product.name}</span>
                         <div class="cart-item-actions">
                             <button class="remove-btn" onclick="adjustQuantity('${id}', -1)">-</button>
@@ -183,6 +185,31 @@ document.addEventListener("DOMContentLoaded", function () {
     function salvarCarrinho() {
         localStorage.setItem("carrinho", JSON.stringify(cart));
         console.log("Carrinho salvo no localStorage:", cart);
+    }
+
+    // Função para exibir o popup de endereço
+    function showAddressPopup() {
+        const popup = document.createElement("div");
+        popup.id = "address-popup";
+        popup.innerHTML = `
+            <h2>Endereço Necessário</h2>
+            <p>Para prosseguir com o checkout, por favor cadastre seu endereço.</p>
+            <button id="add-address-btn">Adicione um Endereço</button>
+        `;
+
+        const overlay = document.createElement("div");
+        overlay.id = "popup-overlay";
+
+        document.body.appendChild(overlay);
+        document.body.appendChild(popup);
+
+        const addAddressBtn = document.getElementById("add-address-btn");
+        addAddressBtn.addEventListener("click", function () {
+            console.log("Redirecionando para a página de endereços...");
+            window.location.href = "../enderecos/enderecos.html";
+            document.body.removeChild(popup);
+            document.body.removeChild(overlay);
+        });
     }
 
     // Evento para o botão "Continuar"
