@@ -12,28 +12,51 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             background-color: #f4f4f4;
+            padding: 20px;
         }
         h1 {
             font-size: 2em;
             margin-bottom: 20px;
         }
-        p {
-            font-size: 1.2em;
+        .address-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
         }
         .cep-container {
             display: flex;
             gap: 10px;
-            margin-top: 20px;
+            margin-bottom: 15px;
         }
         #cep-input {
             padding: 10px;
             font-size: 1em;
             border: 1px solid #ccc;
             border-radius: 5px;
-            width: 200px;
+            width: 70%;
         }
         #cep-button {
             padding: 10px 20px;
@@ -44,12 +67,29 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.2s;
+            width: 30%;
         }
         #cep-button:hover {
             background-color: #6b38cc;
         }
-        #cep-result {
+        #save-address {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
             margin-top: 20px;
+        }
+        #save-address:hover {
+            background-color: #cc0000;
+        }
+        #form-message {
+            margin-top: 15px;
             font-size: 1em;
             text-align: center;
             color: #333;
@@ -58,18 +98,53 @@
 </head>
 <body>
     <h1>Endereços</h1>
-    <p>Adicione seu CEP</p>
-    <div class="cep-container">
-        <input type="text" id="cep-input" placeholder="Digite seu CEP" maxlength="9">
-        <button id="cep-button">Localizar CEP</button>
-    </div>
-    <div id="cep-result"></div>
+    <form class="address-form" id="address-form">
+        <div class="form-group">
+            <label for="name">Nome Completo</label>
+            <input type="text" id="name" placeholder="Digite seu nome completo" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Telefone</label>
+            <input type="tel" id="phone" placeholder="Digite seu telefone" required>
+        </div>
+        <div class="cep-container">
+            <input type="text" id="cep-input" placeholder="Digite seu CEP" maxlength="9" required>
+            <button type="button" id="cep-button">Localizar CEP</button>
+        </div>
+        <div class="form-group">
+            <label for="street">Logradouro</label>
+            <input type="text" id="street" placeholder="Rua, Avenida, etc." required>
+        </div>
+        <div class="form-group">
+            <label for="number">Número</label>
+            <input type="text" id="number" placeholder="Número da residência" required>
+        </div>
+        <div class="form-group">
+            <label for="complement">Complemento</label>
+            <input type="text" id="complement" placeholder="Apto, Bloco, etc. (opcional)">
+        </div>
+        <div class="form-group">
+            <label for="neighborhood">Bairro</label>
+            <input type="text" id="neighborhood" placeholder="Digite o bairro" required>
+        </div>
+        <div class="form-group">
+            <label for="city">Cidade</label>
+            <input type="text" id="city" placeholder="Digite a cidade" required>
+        </div>
+        <div class="form-group">
+            <label for="state">Estado</label>
+            <input type="text" id="state" placeholder="Digite o estado (ex.: SP)" maxlength="2" required>
+        </div>
+        <button type="submit" id="save-address">Salvar Endereço</button>
+    </form>
+    <div id="form-message"></div>
 
     <script>
+        // Busca de CEP com ViaCEP
         document.getElementById("cep-button").addEventListener("click", function () {
             const cepInput = document.getElementById("cep-input").value;
             const cep = cepInput.replace(/\D/g, ""); // Remove caracteres não numéricos
-            const resultDiv = document.getElementById("cep-result");
+            const resultDiv = document.getElementById("form-message");
 
             if (cep.length !== 8) {
                 resultDiv.innerHTML = "Por favor, insira um CEP válido com 8 dígitos.";
@@ -87,19 +162,46 @@
                     if (data.erro) {
                         resultDiv.innerHTML = "CEP não encontrado.";
                     } else {
-                        resultDiv.innerHTML = `
-                            <p><strong>Logradouro:</strong> ${data.logradouro || "N/A"}</p>
-                            <p><strong>Bairro:</strong> ${data.bairro || "N/A"}</p>
-                            <p><strong>Cidade:</strong> ${data.localidade || "N/A"}</p>
-                            <p><strong>Estado:</strong> ${data.uf || "N/A"}</p>
-                            <p><strong>CEP:</strong> ${data.cep || "N/A"}</p>
-                        `;
+                        document.getElementById("street").value = data.logradouro || "";
+                        document.getElementById("neighborhood").value = data.bairro || "";
+                        document.getElementById("city").value = data.localidade || "";
+                        document.getElementById("state").value = data.uf || "";
+                        document.getElementById("cep-input").value = data.cep || cepInput;
+                        resultDiv.innerHTML = "CEP encontrado! Preencha os campos restantes.";
                     }
                 })
                 .catch(error => {
                     resultDiv.innerHTML = "Erro ao buscar o CEP. Tente novamente.";
                     console.error("Erro na API ViaCEP:", error);
                 });
+        });
+
+        // Salvar o formulário
+        document.getElementById("address-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const address = {
+                name: document.getElementById("name").value,
+                phone: document.getElementById("phone").value,
+                cep: document.getElementById("cep-input").value,
+                street: document.getElementById("street").value,
+                number: document.getElementById("number").value,
+                complement: document.getElementById("complement").value,
+                neighborhood: document.getElementById("neighborhood").value,
+                city: document.getElementById("city").value,
+                state: document.getElementById("state").value
+            };
+
+            // Carrega os endereços existentes ou inicia uma array vazia
+            let addresses = JSON.parse(localStorage.getItem("userAddresses")) || [];
+            addresses.push(address); // Adiciona o novo endereço à array
+            localStorage.setItem("userAddresses", JSON.stringify(addresses));
+            document.getElementById("form-message").innerHTML = "Endereço salvo com sucesso!";
+            console.log("Endereço salvo:", address);
+
+            // Redireciona de volta ao checkout após salvar
+            setTimeout(() => {
+                window.location.href = "../checkout-pages/checkout.html";
+            }, 2000); // Redireciona após 2 segundos
         });
     </script>
 </body>

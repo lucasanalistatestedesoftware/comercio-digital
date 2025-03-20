@@ -1,11 +1,11 @@
 // Mapeamento de IDs de produtos para caminhos de imagem, com nomes reais das imagens
 const productImages = {
-    'airpods': '../../img-L/produtos/airpods pro 3.png', // Ajustado para o caminho relativo correto
-    'smartwatch_m7': '../../img-L/produtos/Smart Watch Smartband M7.png',
-    'smartwatch_d20': '../../img-L/produtos/smartwatchd20.jpg',
-    'garrafa_termica': '../../img-L/produtos/garrafater.png',
-    'fone_bluetooth': '../../img-L/produtos/fones.png',
-    'smartband_m4': '../../img-L/produtos/smartband (1).jpg',
+    'airpods': '../img-L/produtos/airpods pro 3.png', // Ajustado para o caminho relativo a checkout-pages/
+    'smartwatch_m7': '../img-L/produtos/Smart Watch Smartband M7.png',
+    'smartwatch_d20': '../img-L/produtos/smartwatchd20.jpg',
+    'garrafa_termica': '../img-L/produtos/garrafater.png',
+    'fone_bluetooth': '../img-L/produtos/fones.png',
+    'smartband_m4': '../img-L/produtos/smartband (1).jpg',
     'moletom_jordan': 'https://m.media-amazon.com/images/I/41BauTo6uzL._AC_SX679_.jpg',
     'moletom_neon': 'https://m.media-amazon.com/images/I/51jdjDv4ZEL.__AC_SY445_SX342_QL70_ML2_.jpg',
     'moletom_hiphop': 'https://m.media-amazon.com/images/I/51-QeDJjfXL._AC_SX679_.jpg',
@@ -57,14 +57,15 @@ function getProductDetails(productName) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Carrega o carrinho do localStorage ou inicia vazio
+    // Carrega o carrinho e os endereços do localStorage ou inicia vazio
     let cart = JSON.parse(localStorage.getItem("carrinho")) || {};
+    let addresses = JSON.parse(localStorage.getItem("userAddresses")) || [];
+    let selectedAddressIndex = localStorage.getItem("selectedAddressIndex") || 0; // Índice do endereço selecionado
     console.log("Página carregada. Carrinho inicial do localStorage:", cart);
+    console.log("Endereços salvos:", addresses);
 
     updateCheckout();
-
-    // Exibe o popup de endereço ao carregar a página
-    showAddressPopup();
+    displayAddresses(); // Exibe a lista de endereços
 
     // Função para atualizar o checkout
     function updateCheckout() {
@@ -101,10 +102,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 const li = document.createElement("li");
-                const imageSrc = productImages[id] || '../../img-L/produtos/default.png'; // Imagem padrão ajustada
+                const imageSrc = productImages[id] || '../img-L/produtos/default.png'; // Ajustado
                 li.innerHTML = `
                     <div class="cart-item" data-id="${id}">
-                        <img src="${imageSrc}" alt="${product.name}" class="cart-item-image" onerror="this.src='../../img-L/2.png';">
+                        <img src="${imageSrc}" alt="${product.name}" class="cart-item-image" onerror="this.src='../img-L/2.png';">
                         <span class="checkout-item-name">${product.name}</span>
                         <div class="cart-item-actions">
                             <button class="remove-btn" onclick="adjustQuantity('${id}', -1)">-</button>
@@ -145,9 +146,9 @@ document.addEventListener("DOMContentLoaded", function () {
     window.adjustQuantity = function (id, change) {
         console.log("Ajustando quantidade para o ID:", id, "Mudança:", change);
         if (cart[id]) {
-            cart[id].quantity = Math.max(1, cart[id].quantity + change); // Garante que a quantidade não seja menor que 1
+            cart[id].quantity = Math.max(1, cart[id].quantity + change);
             if (cart[id].quantity === 0) {
-                delete cart[id]; // Remove o item se a quantidade chegar a 0
+                delete cart[id];
                 console.log("Item removido completamente:", id);
             }
             salvarCarrinho();
@@ -170,8 +171,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             return acc;
         }, 0);
-        const frete = 28.10; // Valor fixo de frete, como no print
-        const impostos = 15.04; // Valor fixo de impostos, como no print
+        const frete = 28.10;
+        const impostos = 15.04;
         const totalEstimado = subtotal + frete + impostos;
 
         subtotalElement.textContent = `R$${subtotal.toFixed(2)}`;
@@ -212,13 +213,76 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Função para exibir e gerenciar os endereços salvos (Ideia 1 e 3)
+    function displayAddresses() {
+        const checkoutContent = document.querySelector(".checkout-content");
+        const addressSection = document.createElement("div");
+        addressSection.className = "address-section";
+        const continueButton = document.querySelector(".botao-continuar");
+
+        if (addresses.length === 0) {
+            addressSection.innerHTML = `
+                <h3>Endereço de Entrega</h3>
+                <p>Nenhum endereço cadastrado.</p>
+                <button onclick="window.location.href='../enderecos/enderecos.html'">Adicionar Endereço</button>
+            `;
+            if (continueButton) continueButton.disabled = true; // Desativa o botão se não houver endereço
+        } else {
+            let addressOptions = '<h3>Endereço de Entrega</h3><select id="address-select">';
+            addresses.forEach((addr, index) => {
+                addressOptions += `<option value="${index}" ${index == selectedAddressIndex ? 'selected' : ''}>
+                    ${addr.name}
+                </option>`;
+            });
+            addressOptions += '</select>';
+            addressSection.innerHTML = `
+                ${addressOptions}
+                <button onclick="window.location.href='../enderecos/enderecos.html'">Adicionar ou Editar Endereços</button>
+                <div id="selected-address-details"></div>
+            `;
+            if (continueButton) continueButton.disabled = false; // Ativa o botão se houver endereços
+        }
+
+        checkoutContent.insertBefore(addressSection, document.querySelector(".cart-section"));
+
+        // Atualiza os detalhes do endereço selecionado
+        const addressSelect = document.getElementById("address-select");
+        if (addressSelect) {
+            addressSelect.addEventListener("change", function () {
+                selectedAddressIndex = this.value;
+                localStorage.setItem("selectedAddressIndex", selectedAddressIndex);
+                updateAddressDetails();
+            });
+            updateAddressDetails(); // Exibe os detalhes do endereço selecionado inicialmente
+        }
+    }
+
+    // Função para atualizar os detalhes do endereço selecionado
+    function updateAddressDetails() {
+        const selectedAddress = addresses[selectedAddressIndex];
+        const detailsDiv = document.getElementById("selected-address-details");
+        if (selectedAddress) {
+            detailsDiv.innerHTML = `
+                <p><strong>Nome:</strong> ${selectedAddress.name}</p>
+                <p><strong>Endereço:</strong> ${selectedAddress.street}, ${selectedAddress.number} ${selectedAddress.complement ? selectedAddress.complement : ""}</p>
+                <p><strong>Bairro:</strong> ${selectedAddress.neighborhood}</p>
+                <p><strong>Cidade:</strong> ${selectedAddress.city} - ${selectedAddress.state}</p>
+                <p><strong>CEP:</strong> ${selectedAddress.cep}</p>
+                <p><strong>Telefone:</strong> ${selectedAddress.phone}</p>
+            `;
+        }
+    }
+
     // Evento para o botão "Continuar"
     const botaoContinuar = document.querySelector(".botao-continuar");
     if (botaoContinuar) {
         botaoContinuar.addEventListener("click", function () {
+            if (addresses.length === 0) {
+                alert("Por favor, adicione um endereço antes de continuar.");
+                return;
+            }
             console.log("Prosseguindo para a próxima etapa do checkout.");
             alert("Prosseguindo para a próxima etapa do pagamento!");
-            // Aqui você pode redirecionar para uma página de pagamento ou manter como está
             // Por exemplo: window.location.href = "pagamento.html";
         });
     } else {

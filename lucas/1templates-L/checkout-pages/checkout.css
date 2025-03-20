@@ -378,6 +378,55 @@ footer p {
   z-index: 999;
 }
 
+/* Estilos para a seção de endereços */
+.address-section {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.address-section h3 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.address-section select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.address-section button {
+  background-color: #8d50ff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease;
+}
+
+.address-section button:hover {
+  background-color: #6b38cc;
+}
+
+#selected-address-details {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #333;
+}
+
+#selected-address-details p {
+  margin: 5px 0;
+}
+
 /* Remoção de estilos redundantes ou não usados */
 .product, .buttons, .product-image, .sidebar, .texto-logo {
   display: none;
